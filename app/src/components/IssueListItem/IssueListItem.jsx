@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom'
 
 class IssueListItem extends Component {
   render() {
-    const { id, name, description } = this.props.issue;
+    const { id, name } = this.props.issue;
 
     return (
-        <div className="issue-item">
-          <div className="issue-item-info">
+        <div className="issue-list__item">
+          <div className="issue-list__item-info">
             <Link to={`/issues/${id}`}>
               {name}
             </Link>

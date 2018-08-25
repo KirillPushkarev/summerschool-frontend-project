@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import './styles.css';
 
 import IssueListItem from '../IssueListItem/IssueListItem';
 import { Link } from 'react-router-dom'
-
-import axios from 'axios'
 
 class IssueList extends Component {
     constructor(props){
@@ -12,12 +11,15 @@ class IssueList extends Component {
         this.state = {
           issues: [],
         }
-        axios.get("http://localhost:3004/issues")
+    }
+
+    componentDidMount(){
+        this.props.issueApiService.getIssues()
             .then(response => this.setState({ issues: response.data }));
     }
 
     onRemove = (issueId) => {
-        axios.delete(`http://localhost:3004/issues/${issueId}`);
+        this.props.issueApiService.deleteIssue(issueId);
 
         this.setState({
           ...this.state,
