@@ -1,10 +1,17 @@
 .header {
-    color: rgb(255, 255, 255);
     background-color: rgb(7, 71, 166);
     padding: 20px;
 }
-  
-.header__title {
-    font-size: 1.5rem;
-    text-align: center;
+
+.header__navlink {
+    color: rgb(255, 255, 255);
+    margin: 0 5px;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.header__navlink:hover {
+    background-color: rgb(6, 60, 141);
+    border-radius: 8px;
 }

@@ -1,3 +1,57 @@
 .issue-details {
+    margin: 20px 20px;
     padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.issue-details__title {
+    display: block;
+    margin: 8px 0;
+    font-size: 32px;
+    color: #000;
+}
+
+.issue-details__block {
+    margin: 24px 0;
+}
+
+.issue-details__block:last-of-type {
+    margin-bottom: 0;
+}
+
+.issue-details__field-name {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.issue-list__edit-button {
+    display: block;
+    margin: 16px 0 28px 0;
+    padding: 6px;
+    width: 80px;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #ebecf0;
+    text-align: center;
+    color: #000;
+    border-radius: 4px;
+}
+
+.issue-list__edit-button:hover {
+    background-color: #d9dbdf;
+}
+
+.issue-details__back-btn {
+    display: block;
+    margin: 0 0 24px 0;
+    font-size: 16px;
+    cursor: pointer;
+    color: rgb(117, 117, 117);
+    user-select: none;
+    text-decoration: none;
+}
+
+.issue-details__back-btn:hover {
+    text-decoration: underline;
 }

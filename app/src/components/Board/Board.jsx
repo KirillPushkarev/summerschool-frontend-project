@@ -1,30 +1,33 @@
-import React, { Component } from 'react';
-import './styles.css';
+import React, { Component } from "react";
+import "./styles.css";
 
-import IssueBoardItem from '../IssueBoardItem/IssueBoardItem';
-
-import axios from 'axios'
+import BoardGroup from "../BoardGroup/BoardGroup";
 
 class Board extends Component {
-  constructor(props){
-    super(props);
+    constructor(props) {
+        super(props);
 
-    this.state = {
-        issues: [],
-    };
-    axios.get("http://localhost:3004/issues")
-          .then(response => this.setState({ issues: response.data }));
-  }
+        this.state = {
+            issues: [],
+        };
+    }
 
-  render() {
-    const issueElements = this.state.issues.map(issue => <IssueBoardItem key={issue.id} issue={issue}/>);
+    componentDidMount() {
+        this.props.issueApiService.getIssues().then(response => this.setState({ issues: response.data }));
+    }
 
-    return (
-        <div className="issue-list">
-            {issueElements}
-        </div>
-    );
-  }
+    render() {
+        const statuses = ["To do", "In progress", "In review", "Done"];
+        const boardGroupElements = statuses.map(status => (
+            <BoardGroup
+                key={status}
+                status={status}
+                issues={this.state.issues.filter(issue => issue.status === status)}
+            />
+        ));
+
+        return <div className="board">{boardGroupElements}</div>;
+    }
 }
 
 export default Board;

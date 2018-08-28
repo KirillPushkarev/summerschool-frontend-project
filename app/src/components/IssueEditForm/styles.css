@@ -1,69 +1,47 @@
 .issue-edit-form {
+    margin: 20px;
     padding: 20px;
-}
-
-input[type=text] {
-    display: inline-block;
-    width: 100%;
-    padding: 9px 15px;
-    margin: 8px 0;
-    background-color: #f4f5f7;
-    border: 1px solid #dfe1e6;
     border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-textarea {
-    display: block;
-    width: 100%;
-    height: 150px;
-    padding: 9px 15px;
-    margin: 8px 0;
-    background-color: #f4f5f7;
-    border: 1px solid #dfe1e6;
-    border-radius: 4px;
-    font-family: inherit;
-    resize: none;
+.issue-edit-form__title {
+    margin: 8px 0 16px 0;
 }
 
-select {
-    width: 100%;
-    padding: 9px 15px;
-    margin: 8px 0;
-    border-radius: 4px;
-    background-color: #f4f5f7;
-    border: 1px solid #dfe1e6;
+.issue-edit-form__block {
+    margin-top: 20px;
 }
 
-input[type="text"]:focus, textarea:focus, select:focus {
-    background-color: #fff;
-    border: 1px solid #4c9aff;
+.issue-edit-form__btns-block {
+    margin-top: 30px;
 }
 
-.submit {
+.issue-edit-form__submit-btn {
     background-color: #0052cc;
     color: #fff;
-    padding: 9px 15px;
     margin: 8px 0;
+    padding: 9px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
 }
 
-.submit:hover {
+.issue-edit-form__submit-btn:hover {
     background-color: #0065ff;
 }
 
-.cancel {
+.issue-edit-form__cancel-btn {
     background-color: #fff;
     color: #0052cc;
-    padding: 9px 15px;
     margin: 8px 0;
+    padding: 9px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.cancel:hover {
+.issue-edit-form__cancel-btn:hover {
     text-decoration: underline;
 }

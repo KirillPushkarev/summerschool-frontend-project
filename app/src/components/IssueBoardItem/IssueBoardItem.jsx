@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import './styles.css';
+import React, { Component } from "react";
+import "./styles.css";
 
 class IssueBoardItem extends Component {
-    render(){
-        return (
-            <div/>
-        );
+    render() {
+        return <div>{this.props.issue.name}</div>;
     }
 }
 

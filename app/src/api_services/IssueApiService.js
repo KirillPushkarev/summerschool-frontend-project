@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default class IssueApiService {
-    constructor(baseUrl){
+    constructor(baseUrl) {
         this.baseUrl = baseUrl;
     }
 
@@ -21,7 +21,11 @@ export default class IssueApiService {
         return axios.put(`${this.baseUrl}/issues/${issue.id}`, issue);
     }
 
-    deleteIssue(issue) {
-        return axios.delete(`${this.baseUrl}/issues/${issue.id}`);
+    patchIssue(issueId, patch) {
+        return axios.patch(`${this.baseUrl}/issues/${issueId}`, patch);
+    }
+
+    deleteIssue(id) {
+        return axios.delete(`${this.baseUrl}/issues/${id}`);
     }
 }

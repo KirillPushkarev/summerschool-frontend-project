@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
-import './styles.css';
+import React, { Component } from "react";
+import "./styles.css";
 
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class IssueListItem extends Component {
-  render() {
-    const { id, name } = this.props.issue;
+    render() {
+        const { id, name } = this.props.issue;
 
-    return (
-        <div className="issue-list__item">
-          <div className="issue-list__item-info">
-            <Link to={`/issues/${id}`}>
-              {name}
+        return (
+            <Link to={`/issues/${id}`} className="issue-list__item" onClick={this.onClick}>
+                <div className="issue-list__item-info">{name}</div>
+                <div className="issue-list__item-remove-button" onClick={this.props.onRemove}>
+                    Delete
+                </div>
             </Link>
-          </div>
-
-          <div className="issue-remove" onClick={this.props.onRemove}>Remove</div>
-        </div>
-    );
-  }
+        );
+    }
 }
 
 export default IssueListItem;
