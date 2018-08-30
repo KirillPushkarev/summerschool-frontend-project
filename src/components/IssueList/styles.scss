@@ -1,0 +1,21 @@
+.issue-list {
+    padding: 20px;
+}
+
+.issue-list__items {
+}
+
+.issue-list__add-button {
+    padding: 10px 14px;
+    margin: 24px 0;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color: #ebecf0;
+    color: #000;
+    border-radius: 4px;
+}
+
+.issue-list__add-button:hover {
+    background-color: #d9dbdf;
+}

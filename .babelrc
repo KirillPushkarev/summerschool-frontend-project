@@ -1,0 +1,4 @@
+{
+    "presets": ["@babel/preset-react", ["@babel/preset-env", { "targets": { "chrome": 67 } }]],
+    "plugins": ["transform-class-properties"]
+}
