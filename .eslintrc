@@ -1,0 +1,15 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "semi": ["warn", "always"],
+        "quotes": ["warn", "double"],
+        "indent": ["error", 4],
+        "code": ["error", 120],
+        "linebreak-style": "off",
+        "import/no-unresolved": "off"
+    },
+    "globals": {
+        "window": true,
+        "document": true
+    }
+}

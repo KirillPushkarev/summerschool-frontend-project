@@ -8,36 +8,16 @@ class IssueEditForm extends Component {
     constructor(props) {
         super(props);
 
-        if (this.props.mode === "Create") {
-            this.state = {
-                issue: {
-                    name: "",
-                    description: "",
-                    priority: "Medium",
-                    status: "To do",
-                    assigneeId: "-1",
-                },
-                isSubmitted: false,
-                isCancelled: false,
-            };
-        } else {
-            this.state = {
-                isSubmitted: false,
-                isCancelled: false,
-            };
-        }
-    }
-
-    componentDidMount() {
-        if (this.props.mode === "Update") {
-            this.props.issueApiService
-                .getIssue(this.props.match.params.id)
-                .then(response => this.setState({ issue: response.data }));
-        }
+        this.state = {
+            issue: this.props.issue,
+            isSubmitted: false,
+            isCancelled: false,
+        };
     }
 
     onChange = (fieldName, value) => {
         this.setState({
+            ...this.state,
             issue: { ...this.state.issue, [fieldName]: value },
         });
     };
@@ -46,19 +26,17 @@ class IssueEditForm extends Component {
         event.preventDefault();
 
         if (this.props.mode === "Create") {
-            this.props.issueApiService.postIssue(this.state.issue).then(response =>
-                this.setState({
-                    ...this.state,
-                    isSubmitted: true,
-                }),
-            );
+            this.props.addIssue(this.state.issue);
+            this.setState({
+                ...this.state,
+                isSubmitted: true,
+            });
         } else {
-            this.props.issueApiService.putIssue(this.state.issue).then(response =>
-                this.setState({
-                    ...this.state,
-                    isSubmitted: true,
-                }),
-            );
+            this.props.updateIssue(this.state.issue);
+            this.setState({
+                ...this.state,
+                isSubmitted: true,
+            });
         }
     };
 
@@ -72,8 +50,6 @@ class IssueEditForm extends Component {
     };
 
     render() {
-        if (!this.state.issue) return null;
-
         if (this.state.isCancelled || this.state.isSubmitted) {
             if (this.props.mode === "Create") return <Redirect push to="/issues" />;
             else return <Redirect push to={`/issues/${this.props.match.params.id}`} />;

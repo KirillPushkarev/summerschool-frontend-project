@@ -8,13 +8,7 @@ class IssueDetails extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
-    }
-
-    componentDidMount() {
-        this.props.issueApiService
-            .getIssue(this.props.match.params.id)
-            .then(response => this.setState({ issue: response.data }));
+        this.state = { issue: this.props.issue };
     }
 
     onChange = (fieldName, value) => {
@@ -22,11 +16,10 @@ class IssueDetails extends Component {
             issue: { ...this.state.issue, [fieldName]: value },
         });
 
-        this.props.issueApiService.patchIssue(this.state.issue.id, { [fieldName]: value });
+        this.props.updateIssue({ ...this.state.issue, [fieldName]: value });
     };
 
     render() {
-        if (!this.state.issue) return null;
         const { id, name, description, status, priority, assigneeId, comments } = this.state.issue;
 
         return (

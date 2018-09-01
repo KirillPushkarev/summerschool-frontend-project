@@ -5,30 +5,13 @@ import IssueListItem from "../IssueListItem/IssueListItem";
 import { Link } from "react-router-dom";
 
 class IssueList extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            issues: [],
-        };
-    }
-
-    componentDidMount() {
-        this.props.issueApiService.getIssues().then(response => this.setState({ issues: response.data }));
-    }
-
     onRemove = (issueId, e) => {
         e.stopPropagation();
-        this.setState({
-            ...this.state,
-            issues: this.state.issues.filter(issue => issue.id !== issueId),
-        });
-
-        this.props.issueApiService.deleteIssue(issueId);
+        this.props.deleteIssue(issueId);
     };
 
     render() {
-        const issueElements = this.state.issues.map(issue => (
+        const issueElements = this.props.issues.map(issue => (
             <IssueListItem key={issue.id} issue={issue} onRemove={e => this.onRemove(issue.id, e)} />
         ));
 

@@ -4,35 +4,35 @@ import "./styles.scss";
 import { Redirect } from "react-router-dom";
 
 class IssueListItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirectToDetails: false,
-        };
-    }
-
-    onClick = e => {
-        this.setState({
-            redirectToDetails: true,
-        });
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirectToDetails: false,
     };
+  }
 
-    render() {
-        const { id, name } = this.props.issue;
+  onClick = e => {
+    this.setState({
+      redirectToDetails: true,
+    });
+  };
 
-        if (this.state.redirectToDetails) {
-            return <Redirect push to={`/issues/${id}`} />;
-        }
+  render() {
+    const { id, name } = this.props.issue;
 
-        return (
-            <div className="issue-list__item" onClick={this.onClick}>
-                <div className="issue-list__item-info">{name}</div>
-                <div className="issue-list__item-remove-button" onClick={this.props.onRemove}>
-                    Delete
-                </div>
-            </div>
-        );
+    if (this.state.redirectToDetails) {
+      return <Redirect push to={`/issues/${id}`} />;
     }
+
+    return (
+      <div className="issue-list__item" onClick={this.onClick}>
+        <div className="issue-list__item-info">{name}</div>
+        <div className="issue-list__item-remove-button" onClick={this.props.onRemove}>
+          Delete
+        </div>
+      </div>
+    );
+  }
 }
 
 export default IssueListItem;
