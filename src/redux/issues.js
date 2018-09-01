@@ -1,4 +1,4 @@
-import IssueApiService from "src/api_services/IssueApiService";
+import IssueApiService from "../api_services/IssueApiService";
 
 const issueApiService = new IssueApiService("http://localhost:8000");
 
@@ -32,6 +32,7 @@ export function fetchIssues() {
 }
 
 export function addIssue(issue) {
+    // issueApiService.postIssue(issue);
     return {
         type: ADD_ISSUE,
         issue,
@@ -39,6 +40,7 @@ export function addIssue(issue) {
 }
 
 export function updateIssue(issue) {
+    // issueApiService.putIssue(issue);
     return {
         type: UPDATE_ISSUE,
         issue,
@@ -46,6 +48,7 @@ export function updateIssue(issue) {
 }
 
 export function deleteIssue(issueId) {
+    // issueApiService.deleteIssue(issueId);
     return {
         type: DELETE_ISSUE,
         issueId,

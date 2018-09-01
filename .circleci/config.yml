@@ -1,6 +1,3 @@
-plugins:
-    eslint:
-        enabled: true
 jobs:
     build:
         docker:

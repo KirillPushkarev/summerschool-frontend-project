@@ -43,7 +43,11 @@ class Combobox extends Component {
                 <div className="combobox__option combobox__selected-option" onClick={this.onSelectedClick}>
                     <div
                         className="combobox__option-avatar"
-                        style={{ backgroundImage: `url(${this.state.selectedOption.imgSrc})` }}
+                        style={{
+                            background: this.state.selectedOption.imgSrc
+                                ? `url(${this.state.selectedOption.imgSrc})`
+                                : "#ddd",
+                        }}
                     />
                     {this.state.selectedOption.text}
                     <i className="fas fa-angle-down combobox__selected-icon" />
@@ -53,7 +57,9 @@ class Combobox extends Component {
                         <div key={option.value} className="combobox__option" onClick={this.onOptionClick(option)}>
                             <div
                                 className="combobox__option-avatar"
-                                style={{ backgroundImage: `url(${option.imgSrc})` }}
+                                style={{
+                                    background: option.imgSrc ? `url(${option.imgSrc})` : "#ddd",
+                                }}
                             />
                             {option.text}
                         </div>
