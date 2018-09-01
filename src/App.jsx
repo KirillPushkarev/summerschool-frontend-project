@@ -39,7 +39,10 @@ class App extends Component {
     }
 }
 
-const mapDispatchToProps = { fetchIssues, fetchUsers };
+const mapDispatchToProps = {
+    fetchIssues,
+    fetchUsers,
+};
 
 export default connect(
     null,

@@ -3,7 +3,7 @@ import IssueDetails from "src/components/IssueDetails/IssueDetails";
 import { updateIssue } from "src/redux/issues";
 
 const mapStateToProps = (state, ownProps) => ({
-    issue: state.issues.items.find(issue => "" + issue.id === ownProps.match.params.id),
+    issue: state.issues.items.find(issue => issue.id.toString() === ownProps.match.params.id),
     users: state.users.items,
 });
 const mapDispatchToProps = {

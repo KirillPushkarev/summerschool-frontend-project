@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
     issue:
         ownProps.mode === "Create"
             ? initialIssueState
-            : state.issues.items.find(issue => "" + issue.id === ownProps.match.params.id),
+            : state.issues.items.find(issue => issue.id.toString() === ownProps.match.params.id),
     users: state.users.items,
 });
 const mapDispatchToProps = {

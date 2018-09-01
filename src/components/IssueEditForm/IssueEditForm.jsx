@@ -16,10 +16,10 @@ class IssueEditForm extends Component {
     }
 
     onChange = (fieldName, value) => {
-        this.setState({
-            ...this.state,
-            issue: { ...this.state.issue, [fieldName]: value },
-        });
+        this.setState(prevState => ({
+            ...prevState,
+            issue: { ...prevState.issue, [fieldName]: value },
+        }));
     };
 
     onSubmit = event => {
@@ -27,24 +27,24 @@ class IssueEditForm extends Component {
 
         if (this.props.mode === "Create") {
             this.props.addIssue(this.state.issue);
-            this.setState({
-                ...this.state,
+            this.setState(prevState => ({
+                ...prevState,
                 isSubmitted: true,
-            });
+            }));
         } else {
             this.props.updateIssue(this.state.issue);
-            this.setState({
-                ...this.state,
+            this.setState(prevState => ({
+                ...prevState,
                 isSubmitted: true,
-            });
+            }));
         }
     };
 
     onCancel = event => {
-        this.setState({
-            ...this.state,
+        this.setState(prevState => ({
+            ...prevState,
             isCancelled: true,
-        });
+        }));
 
         event.preventDefault();
     };

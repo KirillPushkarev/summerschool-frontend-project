@@ -12,9 +12,9 @@ class IssueDetails extends Component {
     }
 
     onChange = (fieldName, value) => {
-        this.setState({
-            issue: { ...this.state.issue, [fieldName]: value },
-        });
+        this.setState(prevState => ({
+            issue: { ...prevState.issue, [fieldName]: value },
+        }));
 
         this.props.updateIssue({ ...this.state.issue, [fieldName]: value });
     };
