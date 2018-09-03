@@ -33,6 +33,8 @@ class ComboboxWithAvatars extends Component {
 
     render() {
         const { options } = this.props;
+        const unassignedImageURL =
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/WikiFont_uniE600_-_userAvatar_-_blue.svg/240px-WikiFont_uniE600_-_userAvatar_-_blue.svg.png";
 
         return (
             <div className="combobox">
@@ -40,7 +42,9 @@ class ComboboxWithAvatars extends Component {
                     <div
                         className="combobox__option-avatar"
                         style={{
-                            backgroundImage: `url(${this.state.selectedOption.imgSrc})`,
+                            backgroundImage: `url(${
+                                this.state.selectedOption.imgSrc ? this.state.selectedOption.imgSrc : unassignedImageURL
+                            })`,
                         }}
                     />
                     {this.state.selectedOption.text}
@@ -52,7 +56,7 @@ class ComboboxWithAvatars extends Component {
                             <div
                                 className="combobox__option-avatar"
                                 style={{
-                                    backgroundImage: `url(${option.imgSrc})`,
+                                    backgroundImage: `url(${option.imgSrc ? option.imgSrc : unassignedImageURL})`,
                                 }}
                             />
                             {option.text}
