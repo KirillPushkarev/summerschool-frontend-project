@@ -1,6 +1,6 @@
 import IssueApiService from "../api_services/IssueApiService";
 
-const issueApiService = new IssueApiService("http://localhost:8000");
+const issueApiService = new IssueApiService("/api");
 
 // Constants
 export const actionTypes = {

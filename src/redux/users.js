@@ -1,6 +1,6 @@
 import UserApiService from "../api_services/UserApiService";
 
-const userApiService = new UserApiService("http://localhost:8000");
+const userApiService = new UserApiService("/api");
 
 // Constants
 export const actionTypes = {

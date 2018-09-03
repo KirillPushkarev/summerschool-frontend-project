@@ -1,10 +1,53 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "name": "Burnice Conn",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/coreyginnivan/128.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Giovanna Mueller",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/leehambley/128.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Eliezer Wolf",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/swooshycueb/128.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Bert Bechtelar",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/michalhron/128.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Jamie Bartoletti",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/arthurholcombe1/128.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Linda Schmeler",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ismail_biltagi/128.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Dr. Clarabelle Trantow",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/kojourin/128.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Marcellus Kulas PhD",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"
+    }
+  ],
   "issues": [
     {
       "name": "Issue 1",
       "description": "My first issue.",
       "priority": "Highest",
       "status": "In review",
+      "assigneeId": 1,
       "id": 1
     },
     {
@@ -12,6 +55,7 @@
       "description": "Задача 2",
       "priority": "Medium",
       "status": "In review",
+      "assigneeId": 2,
       "id": 2
     },
     {
@@ -19,13 +63,15 @@
       "description": "hello",
       "priority": "Low",
       "status": "To do",
+      "assigneeId": 8,
       "id": 3
     },
     {
       "name": "Issue 4",
       "description": "hey, dude, haha",
-      "priority": "Highest",
+      "priority": "Medium",
       "status": "To do",
+      "assigneeId": 4,
       "id": 4
     },
     {
@@ -33,127 +79,70 @@
       "description": "lol",
       "priority": "Highest",
       "status": "To do",
+      "assigneeId": 3,
       "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "text": "Ut perspiciatis eligendi. Consequatur sunt quisquam molestias. Quis aut labore atque expedita aut delectus. Placeat dolores voluptatem tempora molestiae quia quibusdam est. Molestiae a recusandae sed numquam eos iure.",
+      "issueId": 5,
+      "userId": 2
     },
     {
-      "name": "Issue 6",
-      "description": "make app",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 6
+      "id": 2,
+      "text": "Doloremque qui deleniti distinctio rem. Aspernatur nisi labore. Ducimus minima quam repudiandae aut blanditiis eius excepturi. Delectus ullam consequuntur quam veritatis facilis ea vero qui sint. Repellendus quis necessitatibus quaerat sit voluptatem dolore nesciunt.",
+      "issueId": 2,
+      "userId": 2
     },
     {
-      "name": "Issue 7",
-      "description": "Create subtasks",
-      "priority": "High",
-      "status": "To do",
-      "id": 7
+      "id": 3,
+      "text": "Vel enim officia qui minus nisi est quia magni nesciunt. Recusandae iste nam sint quasi officia dolorem enim est voluptatem. Quas sint repellat voluptatem voluptas est commodi fuga eaque eveniet. Laborum qui voluptatem saepe nemo sit.",
+      "issueId": 2,
+      "userId": 8
     },
     {
-      "name": "Create some test issues",
-      "description": "We need to test our issue tracker app",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 8
+      "id": 4,
+      "text": "Deleniti perspiciatis quis aut quidem sit vero nisi nihil et. Deserunt et facilis architecto modi est voluptatem excepturi modi qui. Recusandae voluptatibus enim accusantium vitae cumque dolorem. Quibusdam quisquam est aut sed.",
+      "issueId": 1,
+      "userId": 7
     },
     {
-      "name": "Update button look",
-      "description": "Today. Now",
-      "priority": "High",
-      "status": "To do",
-      "id": 10
+      "id": 5,
+      "text": "Eum illo voluptatem porro fuga in similique. Assumenda iusto aut. Itaque et provident. Quisquam deleniti in tempora culpa ad adipisci nobis ut. Voluptatibus laudantium voluptas autem deserunt dignissimos illo accusantium.",
+      "issueId": 5,
+      "userId": 6
     },
     {
-      "name": "Empty",
-      "description": "empty",
-      "priority": "Low",
-      "status": "To do",
-      "id": 11
+      "id": 6,
+      "text": "Eos accusantium quaerat tempora esse ex voluptas excepturi deleniti. Cupiditate eveniet et sequi temporibus illum dolore consequuntur similique accusantium. Aspernatur sed quis ut laborum omnis similique quaerat.",
+      "issueId": 4,
+      "userId": 3
     },
     {
-      "name": "Too much text in description",
-      "description": "Too much text...\nToo much text...\nToo much text...\nToo much text...To much text...\nToo much text...\nToo much text...Too much text...\nToo much text...To much text...\nToo much text...\nToo much text...Too much text...Too much text...To much text...Too much text...To much text...Too much text...To much text...Too much text...To much text...Too much text...To much text...\n\n\n",
-      "priority": "Medium",
-      "status": "In review",
-      "id": 12
+      "id": 7,
+      "text": "Dolor quam amet ipsum. Voluptas nihil velit nisi est nulla deserunt consequatur ullam id. Accusantium laboriosam facilis quia ut deleniti sit provident. Vero qui numquam vitae provident similique beatae aut quidem. Fugit reiciendis nemo ut eveniet.",
+      "issueId": 4,
+      "userId": 5
     },
     {
-      "name": "issue 00",
-      "description": "0_0",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 13
+      "id": 8,
+      "text": "Suscipit iusto doloribus aut eum rem sit numquam autem fuga. Et omnis rerum nulla sint nulla nulla facilis. Rerum quas omnis sunt velit nam.",
+      "issueId": 2,
+      "userId": 8
     },
     {
-      "name": "issue 99",
-      "description": "99?",
-      "priority": "Low",
-      "status": "To do",
-      "id": 14
+      "id": 9,
+      "text": "Ut eos deserunt maiores ipsam. Ab dolorem perspiciatis excepturi quia. Adipisci quisquam eos est et enim porro quibusdam est unde. Inventore qui qui fugit. Cupiditate distinctio dolore. Esse aliquam alias nihil natus sit non neque.",
+      "issueId": 2,
+      "userId": 2
     },
     {
-      "name": "Style header",
-      "description": "",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 15
-    },
-    {
-      "name": "Style footer",
-      "description": "",
-      "priority": "Low",
-      "status": "To do",
-      "id": 16
-    },
-    {
-      "name": "Style issue list",
-      "description": "",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 17
-    },
-    {
-      "name": "dfskdsdk",
-      "description": "bgifdosodsod",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 18
-    },
-    {
-      "name": "lkklk",
-      "description": "lklklklkl",
-      "priority": "Lowest",
-      "status": "To do",
-      "id": 19
-    },
-    {
-      "name": "lklkpopp",
-      "description": "8uijkljkjkj",
-      "priority": "Highest",
-      "status": "To do",
-      "id": 20
-    },
-    {
-      "name": "yjgjg",
-      "description": "",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 21
-    },
-    {
-      "name": "pppp",
-      "description": "",
-      "priority": "Medium",
-      "status": "To do",
-      "id": 22
-    },
-    {
-      "name": "lllllll",
-      "description": "",
-      "priority": "Medium",
-      "status": "To do",
-      "creationTime": "2018-08-28T11:36:26.697Z",
-      "id": 23
+      "id": 10,
+      "text": "Cumque animi assumenda et eos provident illum ea earum. Molestiae nemo vero in sed molestias non ullam est. Ut maiores laborum dolore facilis expedita quia accusantium nulla assumenda. Sit quo vel corrupti repellendus non. Quaerat sint sit id autem facilis nesciunt dicta asperiores officia. Voluptate eveniet ipsa.",
+      "issueId": 3,
+      "userId": 6
     }
   ]
 }
