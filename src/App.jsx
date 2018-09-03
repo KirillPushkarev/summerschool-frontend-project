@@ -24,10 +24,7 @@ class App extends Component {
                         <Route exact path="/" component={IssueListContainer} />
                         <Route exact path="/issues" component={IssueListContainer} />
                         <Route path="/issues/:id" component={IssueDetailsContainer} />
-                        <Route
-                            path="/createissue"
-                            render={props => <IssueEditFormContainer {...props} mode="Create" />}
-                        />
+                        <Route path="/createissue" render={props => <IssueFormContainer {...props} mode="Create" />} />
                         <Route
                             path="/updateissue/:id"
                             render={props => <IssueFormContainer {...props} mode="Update" />}
