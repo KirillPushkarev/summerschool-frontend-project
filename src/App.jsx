@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchIssues } from "src/redux/issues";
-import { fetchUsers } from "src/redux/users";
+import { fetchIssues } from "./redux/issues";
+import { fetchUsers } from "./redux/users";
 
-import Header from "src/components/Header/Header";
-import IssueListContainer from "src/containers/IssueListContainer";
-import IssueDetailsContainer from "src/containers/IssueDetailsContainer";
-import IssueEditFormContainer from "src/containers/IssueEditFormContainer";
+import Header from "./components/Header/Header";
+import IssueListContainer from "./containers/IssueListContainer";
+import IssueDetailsContainer from "./containers/IssueDetailsContainer";
+import IssueFormContainer from "./containers/IssueFormContainer";
 
 class App extends Component {
     componentDidMount() {
@@ -30,7 +30,7 @@ class App extends Component {
                         />
                         <Route
                             path="/updateissue/:id"
-                            render={props => <IssueEditFormContainer {...props} mode="Update" />}
+                            render={props => <IssueFormContainer {...props} mode="Update" />}
                         />
                     </Switch>
                 </div>

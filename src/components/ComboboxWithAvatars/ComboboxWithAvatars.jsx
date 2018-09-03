@@ -3,15 +3,11 @@ import "./styles.scss";
 
 import onClickOutside from "react-onclickoutside";
 
-class Combobox extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            closed: true,
-            selectedOption: this.props.options.find(option => option.value === this.props.selectedValue),
-        };
-    }
+class ComboboxWithAvatars extends Component {
+    state = {
+        closed: true,
+        selectedOption: this.props.options.find(option => option.value === this.props.selectedValue),
+    };
 
     onSelectedClick = () => {
         this.setState(prevState => ({
@@ -44,9 +40,7 @@ class Combobox extends Component {
                     <div
                         className="combobox__option-avatar"
                         style={{
-                            background: this.state.selectedOption.imgSrc
-                                ? `url(${this.state.selectedOption.imgSrc})`
-                                : "#ddd",
+                            backgroundImage: `url(${this.state.selectedOption.imgSrc})`,
                         }}
                     />
                     {this.state.selectedOption.text}
@@ -58,7 +52,7 @@ class Combobox extends Component {
                             <div
                                 className="combobox__option-avatar"
                                 style={{
-                                    background: option.imgSrc ? `url(${option.imgSrc})` : "#ddd",
+                                    backgroundImage: `url(${option.imgSrc})`,
                                 }}
                             />
                             {option.text}
@@ -75,4 +69,4 @@ const clickOutsideConfig = {
         return instance.onClickOutside;
     },
 };
-export default onClickOutside(Combobox, clickOutsideConfig);
+export default onClickOutside(ComboboxWithAvatars, clickOutsideConfig);

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import IssueEditForm from "src/components/IssueEditForm/IssueEditForm";
-import { addIssue, updateIssue } from "src/redux/issues";
+import IssueForm from "../components/IssueForm/IssueForm";
+import { addIssue, updateIssue } from "../redux/issues";
 
 const initialIssueState = {
     name: "",
@@ -24,4 +24,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-)(IssueEditForm);
+)(IssueForm);

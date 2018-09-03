@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import "./styles.scss";
 import "../../common-styles/form-elements.scss";
-import Combobox from "../Combobox/Combobox";
+import ComboboxWithAvatars from "../ComboboxWithAvatars/ComboboxWithAvatars";
 
-class IssueEditForm extends Component {
+class IssueForm extends Component {
     constructor(props) {
         super(props);
 
@@ -111,7 +111,7 @@ class IssueEditForm extends Component {
                     <div className="issue-edit-form__block">
                         <label className="issue-edit-form__label">Assignee</label>
                         <div className="issue-edit-form__assignee-container">
-                            <Combobox
+                            <ComboboxWithAvatars
                                 options={[
                                     { value: "-1", text: "Not assigned", imgSrc: null },
                                     ...users.map(user => ({
@@ -138,4 +138,4 @@ class IssueEditForm extends Component {
     }
 }
 
-export default IssueEditForm;
+export default IssueForm;

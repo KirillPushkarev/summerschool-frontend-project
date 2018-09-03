@@ -7,10 +7,12 @@ module.exports = {
     entry: "./src/index.jsx",
     output: {
         path: path.resolve(__dirname, "dist"),
+        publicPath: "/",
         filename: "app.js",
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
+        publicPath: "/",
         port: 3000,
         historyApiFallback: true,
         watchContentBase: true,
@@ -21,15 +23,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: [path.resolve(__dirname, "node_modules")],
-                use: [
-                    "babel-loader",
-                    // {
-                    //     loader: "eslint-loader",
-                    //     options: {
-                    //         emitWarning: true,
-                    //     },
-                    // },
-                ],
+                use: ["babel-loader"],
             },
             {
                 test: /\.scss$/,
