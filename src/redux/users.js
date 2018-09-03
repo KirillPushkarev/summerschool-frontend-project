@@ -1,20 +1,23 @@
-import UserApiService from "src/api_services/UserApiService";
+import UserApiService from "../api_services/UserApiService";
 
 const userApiService = new UserApiService("http://localhost:8000");
 
-// Action creators
-export const REQUEST_USERS = "REQUEST_USERS";
-export const RECEIVE_USERS = "RECEIVE_USERS";
+// Constants
+export const actionTypes = {
+    FETCH_USERS_START: "FETCH_USERS_START",
+    FETCH_USERS_SUCCESS: "FETCH_USERS_SUCCESS",
+};
 
+// Action creators
 function requestUsers() {
     return {
-        type: REQUEST_USERS,
+        type: actionTypes.FETCH_USERS_START,
     };
 }
 
 function receiveUsers(users) {
     return {
-        type: RECEIVE_USERS,
+        type: actionTypes.FETCH_USERS_SUCCESS,
         users,
     };
 }
@@ -36,12 +39,12 @@ const initialState = {
 
 export function userReducer(state = initialState, action) {
     switch (action.type) {
-        case REQUEST_USERS:
+        case actionTypes.FETCH_USERS_START:
             return {
                 ...state,
                 isFetching: true,
             };
-        case RECEIVE_USERS:
+        case actionTypes.FETCH_USERS_SUCCESS:
             return {
                 ...state,
                 isFetching: false,

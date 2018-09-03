@@ -7,8 +7,7 @@
         "build": "webpack",
         "start": "webpack-dev-server",
         "api": "json-server api/generate.js --port 8000",
-        "test": "jest",
-        "test:watch": "npm test -- --watch"
+        "test": "jest"
     },
     "author": "Kirill Pushkarev",
     "license": "ISC",

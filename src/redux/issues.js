@@ -2,25 +2,30 @@ import IssueApiService from "../api_services/IssueApiService";
 
 const issueApiService = new IssueApiService("http://localhost:8000");
 
-// Action creators
-export const REQUEST_ISSUES = "REQUEST_ISSUES";
-export const RECEIVE_ISSUES = "RECEIVE_ISSUES";
-export const ADD_ISSUE = "ADD_ISSUE";
-export const UPDATE_ISSUE = "UPDATE_ISSUE";
-export const DELETE_ISSUE = "DELETE_ISSUE";
+// Constants
+export const actionTypes = {
+    FETCH_ISSUES_START: "FETCH_ISSUES_START",
+    FETCH_ISSUES_SUCCESS: "FETCH_ISSUES_SUCCESS",
 
-function requestIssues() {
-    return {
-        type: REQUEST_ISSUES,
-    };
-}
+    CREATE_ISSUE_START: "CREATE_ISSUE_START",
+    CREATE_ISSUE_SUCCESS: "CREATE_ISSUE_SUCCESS",
 
-function receiveIssues(issues) {
-    return {
-        type: RECEIVE_ISSUES,
-        issues,
-    };
-}
+    UPDATE_ISSUE_START: "UPDATE_ISSUE_START",
+    UPDATE_ISSUE_SUCCESS: "UPDATE_ISSUE_SUCCESS",
+
+    DELETE_ISSUE_START: "DELETE_ISSUE_START",
+    DELETE_ISSUE_SUCCESS: "DELETE_ISSUE_SUCCESS",
+};
+
+// Actions
+const requestIssues = () => ({
+    type: actionTypes.FETCH_ISSUES_START,
+});
+
+const receiveIssues = issues => ({
+    type: actionTypes.FETCH_ISSUES_SUCCESS,
+    issues,
+});
 
 export function fetchIssues() {
     return function(dispatch) {
@@ -31,27 +36,57 @@ export function fetchIssues() {
     };
 }
 
+const requestAddIssue = () => ({
+    type: actionTypes.CREATE_ISSUE_START,
+});
+
+const receiveAddIssue = issue => ({
+    type: actionTypes.CREATE_ISSUE_SUCCESS,
+    issue,
+});
+
 export function addIssue(issue) {
-    // issueApiService.postIssue(issue);
-    return {
-        type: ADD_ISSUE,
-        issue,
+    return function(dispatch) {
+        dispatch(requestAddIssue());
+        return issueApiService.postIssue(issue).then(response => {
+            dispatch(receiveAddIssue(response.data));
+        });
     };
 }
+
+const requestUpdateIssue = () => ({
+    type: actionTypes.UPDATE_ISSUE_START,
+});
+
+const receiveUpdateIssue = issue => ({
+    type: actionTypes.UPDATE_ISSUE_SUCCESS,
+    issue,
+});
 
 export function updateIssue(issue) {
-    // issueApiService.putIssue(issue);
-    return {
-        type: UPDATE_ISSUE,
-        issue,
+    return function(dispatch) {
+        dispatch(requestUpdateIssue());
+        return issueApiService.putIssue(issue).then(response => {
+            dispatch(receiveUpdateIssue(response.data));
+        });
     };
 }
 
+const requestDeleteIssue = () => ({
+    type: actionTypes.DELETE_ISSUE_START,
+});
+
+const receiveDeleteIssue = issueId => ({
+    type: actionTypes.DELETE_ISSUE_SUCCESS,
+    issueId,
+});
+
 export function deleteIssue(issueId) {
-    // issueApiService.deleteIssue(issueId);
-    return {
-        type: DELETE_ISSUE,
-        issueId,
+    return function(dispatch) {
+        dispatch(requestDeleteIssue());
+        return issueApiService.deleteIssue(issueId).then(() => {
+            dispatch(receiveDeleteIssue(issueId));
+        });
     };
 }
 
@@ -63,30 +98,32 @@ const initialState = {
 
 export function issueReducer(state = initialState, action) {
     switch (action.type) {
-        case REQUEST_ISSUES:
+        case actionTypes.FETCH_ISSUES_START:
+        case actionTypes.CREATE_ISSUE_START:
+        case actionTypes.UPDATE_ISSUE_START:
+        case actionTypes.DELETE_ISSUE_START:
             return {
                 ...state,
                 isFetching: true,
             };
-        case RECEIVE_ISSUES:
+        case actionTypes.FETCH_ISSUES_SUCCESS:
             return {
-                ...state,
                 isFetching: false,
                 items: action.issues,
             };
-        case ADD_ISSUE:
+        case actionTypes.CREATE_ISSUE_SUCCESS:
             return {
-                ...state,
+                isFetching: false,
                 items: state.items.concat(action.issue),
             };
-        case UPDATE_ISSUE:
+        case actionTypes.UPDATE_ISSUE_SUCCESS:
             return {
-                ...state,
+                isFetching: false,
                 items: state.items.map(issue => (issue.id !== action.issue.id ? issue : action.issue)),
             };
-        case DELETE_ISSUE:
+        case actionTypes.DELETE_ISSUE_SUCCESS:
             return {
-                ...state,
+                isFetching: false,
                 items: state.items.filter(issue => issue.id !== action.issueId),
             };
         default:
