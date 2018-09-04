@@ -1,35 +1,42 @@
 import React, { Component } from "react";
 import "./styles.scss";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { cloneDeep } from "lodash";
 
-import BoardGroup from "../BoardGroup/BoardGroup";
+import BoardColumn from "../BoardColumn/BoardColumn";
 
 class Board extends Component {
-  constructor(props) {
-    super(props);
+    onDragEnd = result => {
+        const { draggableId, source, destination } = result;
 
-    this.state = {
-      issues: [],
+        if (!destination) {
+            return;
+        }
+
+        if (source.droppableId === destination.droppableId) {
+        } else {
+            const movedIssue = cloneDeep(this.props.issues.find(issue => issue.id === draggableId));
+            movedIssue.status = destination.droppableId;
+            this.props.updateIssue(movedIssue);
+        }
     };
-  }
 
-  componentDidMount() {
-    this.props.issueApiService
-      .getIssues()
-      .then(response => this.setState({ issues: response.data }));
-  }
+    render() {
+        const statuses = ["To do", "In progress", "In review", "Done"];
+        const boardGroupElements = statuses.map(status => (
+            <BoardColumn
+                key={status}
+                status={status}
+                issues={this.props.issues.filter(issue => issue.status === status)}
+            />
+        ));
 
-  render() {
-    const statuses = ["To do", "In progress", "In review", "Done"];
-    const boardGroupElements = statuses.map(status => (
-      <BoardGroup
-        key={status}
-        status={status}
-        issues={this.state.issues.filter(issue => issue.status === status)}
-      />
-    ));
-
-    return <div className="board">{boardGroupElements}</div>;
-  }
+        return (
+            <div className="board">
+                <DragDropContext onDragEnd={this.onDragEnd}>{boardGroupElements}</DragDropContext>
+            </div>
+        );
+    }
 }
 
 export default Board;

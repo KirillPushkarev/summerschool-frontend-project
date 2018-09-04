@@ -29,9 +29,23 @@
     font-family: inherit;
 }
 
+.select-input {
+    display: block;
+    padding: 9px 15px;
+    border-radius: 4px;
+    background-color: #f4f5f7;
+    border: 1px solid #dfe1e6;
+    font-family: inherit;
+}
+
 .text-input:focus,
-.textarea-input:focus,
-.select-input:focus {
+.textarea-input:focus {
     background-color: #fff;
     border: 1px solid #4c9aff;
+    outline: 0;
+}
+
+.select-input:focus {
+    background-color: #fff;
+    outline: 0;
 }

@@ -1,0 +1,21 @@
+.board__board-item {
+    margin-top: 6px;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.board__board-item-avatar {
+    height: 30px;
+    width: 30px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}

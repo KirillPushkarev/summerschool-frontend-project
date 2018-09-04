@@ -1,0 +1,25 @@
+.board__board-group {
+    margin: 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    user-select: none;
+}
+
+.board__board-group-items {
+    width: 300px;
+    height: 400px;
+    overflow: auto;
+    background-color: rgb(255, 255, 255);
+    transition: background-color 100ms linear;
+}
+
+.board__board-group-items_highlighted {
+    background-color: rgb(225, 243, 255);
+    transition: background-color 100ms linear;
+}
+
+.board__board-group-header {
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+}

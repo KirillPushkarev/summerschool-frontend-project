@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import IssueListContainer from "./containers/IssueListContainer";
 import IssueDetailsContainer from "./containers/IssueDetailsContainer";
 import IssueFormContainer from "./containers/IssueFormContainer";
+import BoardContainer from "./containers/BoardContainer";
 
 class App extends Component {
     componentDidMount() {
@@ -29,6 +30,7 @@ class App extends Component {
                             path="/updateissue/:id"
                             render={props => <IssueFormContainer {...props} mode="Update" />}
                         />
+                        <Route exact path="/board" component={BoardContainer} />
                     </Switch>
                 </div>
             </Router>

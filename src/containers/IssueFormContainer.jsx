@@ -6,6 +6,7 @@ const initialIssueState = {
     name: "",
     description: "",
     priority: "Medium",
+    status: "To do",
     assigneeId: "-1",
 };
 
