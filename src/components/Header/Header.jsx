@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.scss";
 
 import { Link } from "react-router-dom";
+import SpinnerContainer from "../../containers/SpinnerContainer";
 
 const Header = () => (
     <header className="header">
@@ -15,6 +16,7 @@ const Header = () => (
                 </Link>
             </div>
         </nav>
+        <SpinnerContainer />
     </header>
 );
 
