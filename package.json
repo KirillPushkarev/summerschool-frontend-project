@@ -5,11 +5,11 @@
     "private": true,
     "scripts": {
         "prod": "rimraf dist && webpack --mode=production",
-        "dev": "webpack-dev-server --mode=development --hot --inline",
         "start": "node server.js",
-        "heroku-postbuild": "webpack --mode=production",
+        "dev": "webpack-dev-server --mode=development --hot --inline",
+        "dev-api": "json-server api/generate.js --port 8000",
         "test": "jest",
-        "api": "json-server api/generate.js --port 8000"
+        "heroku-postbuild": "webpack --mode=production"
     },
     "engines": {
         "node": "8.11.3",

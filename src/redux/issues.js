@@ -1,6 +1,7 @@
 import IssueApiService from "../api_services/IssueApiService";
 
-const issueApiService = new IssueApiService("http://localhost:8000");
+const baseURL = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
+const issueApiService = new IssueApiService(baseURL);
 
 // Constants
 export const actionTypes = {
