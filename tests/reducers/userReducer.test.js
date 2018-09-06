@@ -5,6 +5,7 @@ describe("user reducer", () => {
         expect(userReducer(undefined, {})).toEqual({
             items: [],
             isFetching: false,
+            isInitialDataFetched: false,
         });
     });
 
@@ -14,6 +15,7 @@ describe("user reducer", () => {
                 {
                     items: [],
                     isFetching: false,
+                    isInitialDataFetched: false,
                 },
                 {
                     type: actionTypes.FETCH_USERS_START,
@@ -22,6 +24,7 @@ describe("user reducer", () => {
         ).toEqual({
             items: [],
             isFetching: true,
+            isInitialDataFetched: false,
         });
     });
 
@@ -31,6 +34,7 @@ describe("user reducer", () => {
                 {
                     items: [],
                     isFetching: true,
+                    isInitialDataFetched: false,
                 },
                 {
                     type: actionTypes.FETCH_USERS_SUCCESS,
@@ -62,6 +66,7 @@ describe("user reducer", () => {
                 },
             ],
             isFetching: false,
+            isInitialDataFetched: true,
         });
     });
 });

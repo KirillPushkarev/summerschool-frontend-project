@@ -5,6 +5,7 @@ describe("issue reducer", () => {
         expect(issueReducer(undefined, {})).toEqual({
             items: [],
             isFetching: false,
+            isInitialDataFetched: false,
         });
     });
 
@@ -14,6 +15,7 @@ describe("issue reducer", () => {
                 {
                     items: [],
                     isFetching: false,
+                    isInitialDataFetched: false,
                 },
                 {
                     type: actionTypes.FETCH_ISSUES_START,
@@ -22,6 +24,7 @@ describe("issue reducer", () => {
         ).toEqual({
             items: [],
             isFetching: true,
+            isInitialDataFetched: false,
         });
     });
 
@@ -31,6 +34,7 @@ describe("issue reducer", () => {
                 {
                     items: [],
                     isFetching: true,
+                    isInitialDataFetched: false,
                 },
                 {
                     type: actionTypes.FETCH_ISSUES_SUCCESS,
@@ -46,6 +50,7 @@ describe("issue reducer", () => {
                 { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
             ],
             isFetching: false,
+            isInitialDataFetched: true,
         });
     });
 
@@ -57,6 +62,7 @@ describe("issue reducer", () => {
                         { id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 },
                     ],
                     isFetching: false,
+                    isInitialDataFetched: true,
                 },
                 {
                     type: actionTypes.CREATE_ISSUE_START,
@@ -65,6 +71,7 @@ describe("issue reducer", () => {
         ).toEqual({
             items: [{ id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 }],
             isFetching: true,
+            isInitialDataFetched: true,
         });
     });
 
@@ -76,6 +83,7 @@ describe("issue reducer", () => {
                         { id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 },
                     ],
                     isFetching: true,
+                    isInitialDataFetched: true,
                 },
                 {
                     type: actionTypes.CREATE_ISSUE_SUCCESS,
@@ -88,6 +96,7 @@ describe("issue reducer", () => {
                 { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
             ],
             isFetching: false,
+            isInitialDataFetched: true,
         });
     });
 
@@ -100,17 +109,26 @@ describe("issue reducer", () => {
                         { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
                     ],
                     isFetching: false,
+                    isInitialDataFetched: true,
                 },
                 {
                     type: actionTypes.UPDATE_ISSUE_START,
+                    issue: {
+                        id: 1,
+                        name: "Issue 1",
+                        description: "Very important issue",
+                        priority: "High",
+                        assigneeId: 2,
+                    },
                 },
             ),
         ).toEqual({
             items: [
-                { id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 },
+                { id: 1, name: "Issue 1", description: "Very important issue", priority: "High", assigneeId: 2 },
                 { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
             ],
             isFetching: true,
+            isInitialDataFetched: true,
         });
     });
 
@@ -119,10 +137,17 @@ describe("issue reducer", () => {
             issueReducer(
                 {
                     items: [
-                        { id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 },
+                        {
+                            id: 1,
+                            name: "Issue 1",
+                            description: "Very important issue",
+                            priority: "High",
+                            assigneeId: 2,
+                        },
                         { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
                     ],
                     isFetching: true,
+                    isInitialDataFetched: true,
                 },
                 {
                     type: actionTypes.UPDATE_ISSUE_SUCCESS,
@@ -141,6 +166,7 @@ describe("issue reducer", () => {
                 { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
             ],
             isFetching: false,
+            isInitialDataFetched: true,
         });
     });
 
@@ -153,17 +179,17 @@ describe("issue reducer", () => {
                         { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
                     ],
                     isFetching: false,
+                    isInitialDataFetched: true,
                 },
                 {
                     type: actionTypes.DELETE_ISSUE_START,
+                    issueId: 2,
                 },
             ),
         ).toEqual({
-            items: [
-                { id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 },
-                { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
-            ],
+            items: [{ id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 }],
             isFetching: true,
+            isInitialDataFetched: true,
         });
     });
 
@@ -173,9 +199,9 @@ describe("issue reducer", () => {
                 {
                     items: [
                         { id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 },
-                        { id: 2, name: "Issue 2", description: "My second issue", priority: "High", assigneeId: 3 },
                     ],
                     isFetching: true,
+                    isInitialDataFetched: true,
                 },
                 {
                     type: actionTypes.DELETE_ISSUE_SUCCESS,
@@ -185,6 +211,7 @@ describe("issue reducer", () => {
         ).toEqual({
             items: [{ id: 1, name: "Issue 1", description: "My first issue", priority: "Medium", assigneeId: 1 }],
             isFetching: false,
+            isInitialDataFetched: true,
         });
     });
 });
