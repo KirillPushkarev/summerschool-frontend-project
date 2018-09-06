@@ -5,10 +5,10 @@ import "../../common-styles/form-elements.scss";
 import ComboboxWithAvatars from "../ComboboxWithAvatars/ComboboxWithAvatars";
 
 class IssueDetails extends Component {
-    state = { issue: this.props.issue };
-
     render() {
-        const { id, name, description, priority } = this.state.issue;
+        if (!this.props.isInitialDataFetched) return null;
+
+        const { id, name, description, priority } = this.props.issue;
 
         return (
             <div>
@@ -44,17 +44,13 @@ class IssueDetails extends Component {
     }
 
     onChange = (fieldName, value) => {
-        this.setState(prevState => ({
-            issue: { ...prevState.issue, [fieldName]: value },
-        }));
-
-        this.props.updateIssue({ ...this.state.issue, [fieldName]: value });
+        this.props.updateIssue({ ...this.props.issue, [fieldName]: value });
     };
 
     renderStatusCombobox = () => (
         <select
             className="select-input"
-            value={this.state.issue.status}
+            value={this.props.issue.status}
             onChange={e => this.onChange("status", e.target.value)}
         >
             <option value="To do">To do</option>
@@ -75,7 +71,7 @@ class IssueDetails extends Component {
                         imgSrc: user.avatar,
                     })),
                 ]}
-                selectedValue={this.state.issue.assigneeId}
+                selectedValue={this.props.issue.assigneeId}
                 onChange={value => this.onChange("assigneeId", value)}
             />
         </div>

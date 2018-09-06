@@ -11,6 +11,8 @@ class IssueList extends Component {
     };
 
     render() {
+        if (!this.props.isInitialDataFetched) return null;
+
         const issueElements = this.props.issues.map(issue => (
             <IssueListItem key={issue.id} issue={issue} onRemove={e => this.onRemove(issue.id, e)} />
         ));

@@ -9,10 +9,22 @@ class IssueForm extends Component {
         super(props);
 
         this.state = {
+            isInitialDataFetched: this.props.isInitialDataFetched,
             issue: this.props.issue,
             isSubmitted: false,
             isCancelled: false,
         };
+    }
+
+    // Need this to fill form fields if issues weren't fetched before constructor call
+    static getDerivedStateFromProps(props, state) {
+        if (!state.isInitialDataFetched && props.isInitialDataFetched) {
+            return {
+                isInitialDataFetched: true,
+                issue: props.issue,
+            };
+        }
+        return null;
     }
 
     onChange = (fieldName, value) => {
@@ -27,17 +39,13 @@ class IssueForm extends Component {
 
         if (this.props.mode === "Create") {
             this.props.addIssue(this.state.issue);
-            this.setState(prevState => ({
-                ...prevState,
-                isSubmitted: true,
-            }));
         } else {
             this.props.updateIssue(this.state.issue);
-            this.setState(prevState => ({
-                ...prevState,
-                isSubmitted: true,
-            }));
         }
+        this.setState(prevState => ({
+            ...prevState,
+            isSubmitted: true,
+        }));
     };
 
     onCancel = event => {
@@ -50,6 +58,8 @@ class IssueForm extends Component {
     };
 
     render() {
+        if (!this.state.isInitialDataFetched) return null;
+
         if (this.state.isCancelled || this.state.isSubmitted) {
             if (this.props.mode === "Create") return <Redirect push to="/issues" />;
             else return <Redirect push to={`/issues/${this.props.match.params.id}`} />;

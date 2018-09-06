@@ -96,6 +96,7 @@ export function deleteIssue(issueId) {
 const initialState = {
     items: [],
     isFetching: false,
+    isInitialDataFetched: false,
 };
 
 export function issueReducer(state = initialState, action) {
@@ -110,16 +111,19 @@ export function issueReducer(state = initialState, action) {
         case actionTypes.FETCH_ISSUES_SUCCESS:
             return {
                 isFetching: false,
+                isInitialDataFetched: true,
                 items: action.issues,
             };
         case actionTypes.CREATE_ISSUE_SUCCESS:
             return {
+                ...state,
                 isFetching: false,
                 items: state.items.concat(action.issue),
             };
         case actionTypes.UPDATE_ISSUE_START:
             // let UI update without delay
             return {
+                ...state,
                 isFetching: true,
                 items: state.items.map(issue => (issue.id !== action.issue.id ? issue : action.issue)),
             };
@@ -131,6 +135,7 @@ export function issueReducer(state = initialState, action) {
         case actionTypes.DELETE_ISSUE_START:
             // let UI update without delay
             return {
+                ...state,
                 isFetching: true,
                 items: state.items.filter(issue => issue.id !== action.issueId),
             };

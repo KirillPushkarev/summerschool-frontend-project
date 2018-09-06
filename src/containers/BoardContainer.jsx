@@ -4,6 +4,7 @@ import { updateIssue } from "src/redux/issues";
 
 const mapStateToProps = state => ({
     issues: state.issues.items,
+    isInitialDataFetched: state.issues.isInitialDataFetched && state.users.isInitialDataFetched,
 });
 
 const mapDispatchToProps = {

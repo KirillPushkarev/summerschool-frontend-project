@@ -6,6 +6,7 @@ module.exports = merge(common, {
     mode: "development",
     devServer: {
         contentBase: path.join(__dirname, "dist"),
+        publicPath: "/",
         port: 3000,
         historyApiFallback: true,
         watchContentBase: true,

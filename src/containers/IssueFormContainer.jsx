@@ -16,6 +16,8 @@ const mapStateToProps = (state, ownProps) => ({
             ? initialIssueState
             : state.issues.items.find(issue => issue.id.toString() === ownProps.match.params.id),
     users: state.users.items,
+    isInitialDataFetched:
+        (ownProps.mode === "Create" || state.issues.isInitialDataFetched) && state.users.isInitialDataFetched,
 });
 const mapDispatchToProps = {
     addIssue,

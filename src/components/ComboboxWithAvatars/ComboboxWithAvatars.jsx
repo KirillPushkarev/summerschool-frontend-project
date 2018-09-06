@@ -6,12 +6,10 @@ import onClickOutside from "react-onclickoutside";
 class ComboboxWithAvatars extends Component {
     state = {
         closed: true,
-        selectedOption: this.props.options.find(option => option.value === this.props.selectedValue),
     };
 
     onSelectedClick = () => {
         this.setState(prevState => ({
-            ...prevState,
             closed: !prevState.closed,
         }));
     };
@@ -19,20 +17,19 @@ class ComboboxWithAvatars extends Component {
     onOptionClick = option => () => {
         this.setState({
             closed: true,
-            selectedOption: option,
         });
         this.props.onChange(option.value);
     };
 
     onClickOutside = () => {
-        this.setState(prevState => ({
-            ...prevState,
+        this.setState({
             closed: true,
-        }));
+        });
     };
 
     render() {
         const { options } = this.props;
+        const selectedOption = options.find(option => option.value === this.props.selectedValue);
         const unassignedImageURL =
             "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/WikiFont_uniE600_-_userAvatar_-_blue.svg/240px-WikiFont_uniE600_-_userAvatar_-_blue.svg.png";
 
@@ -43,11 +40,11 @@ class ComboboxWithAvatars extends Component {
                         className="combobox__option-avatar"
                         style={{
                             backgroundImage: `url(${
-                                this.state.selectedOption.imgSrc ? this.state.selectedOption.imgSrc : unassignedImageURL
+                                selectedOption.imgSrc ? selectedOption.imgSrc : unassignedImageURL
                             })`,
                         }}
                     />
-                    {this.state.selectedOption.text}
+                    {selectedOption.text}
                     <i className="fas fa-angle-down combobox__selected-icon" />
                 </div>
                 <div className={`combobox__options${this.state.closed ? " combobox__options_hidden" : ""}`}>
@@ -69,8 +66,6 @@ class ComboboxWithAvatars extends Component {
 }
 
 const clickOutsideConfig = {
-    handleClickOutside: function(instance) {
-        return instance.onClickOutside;
-    },
+    handleClickOutside: instance => instance.onClickOutside,
 };
 export default onClickOutside(ComboboxWithAvatars, clickOutsideConfig);

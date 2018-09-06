@@ -35,6 +35,7 @@ export function fetchUsers() {
 const initialState = {
     items: [],
     isFetching: false,
+    isInitialDataFetched: false,
 };
 
 export function userReducer(state = initialState, action) {
@@ -46,8 +47,8 @@ export function userReducer(state = initialState, action) {
             };
         case actionTypes.FETCH_USERS_SUCCESS:
             return {
-                ...state,
                 isFetching: false,
+                isInitialDataFetched: true,
                 items: action.users,
             };
         default:

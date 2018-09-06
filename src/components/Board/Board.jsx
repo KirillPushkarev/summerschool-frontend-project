@@ -22,6 +22,8 @@ class Board extends Component {
     };
 
     render() {
+        if (!this.props.isInitialDataFetched) return null;
+
         const statuses = ["To do", "In progress", "In review", "Done"];
         const boardGroupElements = statuses.map(status => (
             <BoardColumn
