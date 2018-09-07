@@ -1,0 +1,36 @@
+@mixin input {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 9px 15px;
+    background-color: #f4f5f7;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.text-input {
+    @include input;
+}
+
+.textarea-input {
+    @include input;
+    height: 250px;
+    resize: none;
+}
+
+.select-input {
+    @include input;
+}
+
+.text-input:focus,
+.textarea-input:focus {
+    background-color: #fff;
+    border: 1px solid #4c9aff;
+    outline: 0;
+}
+
+.select-input:focus {
+    background-color: #fff;
+    outline: 0;
+}

@@ -1,8 +1,10 @@
+@import "../../common-styles/variables";
+@import "../../common-styles/card";
+
 .board__board-group {
     margin: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     user-select: none;
+    @include card1;
 }
 
 .board__board-group-items {
@@ -11,7 +13,7 @@
     display: flex;
     flex-direction: column;
     padding: 4px;
-    background-color: rgb(255, 255, 255);
+    background-color: $primary-back-color;
     transition: background-color 150ms linear;
 }
 

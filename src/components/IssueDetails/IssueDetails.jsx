@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
-import "../../common-styles/form-elements.scss";
 import ComboboxWithAvatars from "../ComboboxWithAvatars/ComboboxWithAvatars";
 
 class IssueDetails extends Component {
@@ -35,10 +34,12 @@ class IssueDetails extends Component {
                         {this.renderAssigneeCombobox()}
                     </div>
                 </div>
-                <Link to={`/updateissue/${id}`} className="edit-button">
-                    <i className="fas fa-pen edit-button-icon" />
-                    Edit issue
-                </Link>
+                <div className="issue-details__edit-button-container">
+                    <Link to={`/updateissue/${id}`} className="secondary-button">
+                        <i className="fas fa-pen issue-details__edit-button-icon" />
+                        Edit issue
+                    </Link>
+                </div>
             </div>
         );
     }
@@ -48,20 +49,22 @@ class IssueDetails extends Component {
     };
 
     renderStatusCombobox = () => (
-        <select
-            className="select-input"
-            value={this.props.issue.status}
-            onChange={e => this.onChange("status", e.target.value)}
-        >
-            <option value="To do">To do</option>
-            <option value="In progress">In progress</option>
-            <option value="In review">In review</option>
-            <option value="Done">Done</option>
-        </select>
+        <div className="issue-details__select-container">
+            <select
+                className="select-input"
+                value={this.props.issue.status}
+                onChange={e => this.onChange("status", e.target.value)}
+            >
+                <option value="To do">To do</option>
+                <option value="In progress">In progress</option>
+                <option value="In review">In review</option>
+                <option value="Done">Done</option>
+            </select>
+        </div>
     );
 
     renderAssigneeCombobox = () => (
-        <div className="issue-details__assignee-container">
+        <div className="issue-details__select-container">
             <ComboboxWithAvatars
                 options={[
                     { value: "-1", text: "Not assigned", imgSrc: null },

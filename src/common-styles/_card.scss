@@ -1,0 +1,16 @@
+@import "./variables";
+
+@mixin card {
+    background-color: $primary-back-color;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin card1 {
+    @include card;
+    border-radius: 4px;
+}
+
+@mixin card2 {
+    @include card;
+    border-radius: 8px;
+}

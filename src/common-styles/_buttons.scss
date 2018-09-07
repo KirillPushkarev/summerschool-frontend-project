@@ -1,0 +1,41 @@
+@import "./variables";
+
+@mixin button($back-color, $color) {
+    display: inline-block;
+    background-color: $back-color;
+    color: $color;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.primary-button {
+    @include button($primary-btn-back-color, $primary-btn-color);
+    padding: 9px 15px;
+    font-weight: bold;
+    border: none;
+}
+
+.primary-button:hover {
+    background-color: $primary-btn-back-color-hover;
+}
+
+.secondary-button {
+    @include button($secondary-btn-back-color, $secondary-btn-color);
+    padding: 10px 14px;
+}
+
+.secondary-button:hover {
+    background-color: $secondary-btn-back-color-hover;
+}
+
+.delete-button {
+    @include button(#fff, #dd3030);
+    padding: 4px 6px;
+}
+
+.delete-button:hover {
+    background-color: #fd3b3b;
+    color: #fff;
+}

@@ -1,5 +1,8 @@
+@import "../../common-styles/variables";
+
 .header {
-    background-color: rgb(7, 71, 166);
+    background-color: $secondary-back-color;
+    color: $secondary-color;
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -7,11 +10,11 @@
 }
 
 .header__navlink {
-    color: rgb(255, 255, 255);
     margin: 0 5px;
     padding: 10px 16px;
     text-decoration: none;
     font-size: 20px;
+    color: $secondary-color;
 }
 
 .header__navlink:hover {

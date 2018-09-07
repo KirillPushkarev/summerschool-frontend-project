@@ -1,15 +1,18 @@
+@import "../../common-styles/variables";
+@import "../../common-styles/buttons";
+@import "../../common-styles/form-elements";
+@import "../../common-styles/card";
+
 .issue-details {
     margin: 20px 20px;
     padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    @include card1;
 }
 
 .issue-details__title {
     display: block;
     margin: 8px 0;
     font-size: 32px;
-    color: #000;
 }
 
 .issue-details__block {
@@ -29,28 +32,15 @@
     white-space: pre-wrap;
 }
 
-.issue-details__assignee-container {
+.issue-details__select-container {
     width: 250px;
 }
 
-.edit-button {
-    display: block;
-    margin: 16px 0 0 20px;
-    padding: 10px 14px;
-    width: 120px;
-    text-decoration: none;
-    font-size: 16px;
-    background-color: #ebecf0;
-    text-align: center;
-    color: #000;
-    border-radius: 4px;
+.issue-details__edit-button-container {
+    margin: 0 0 0 20px;
 }
 
-.edit-button:hover {
-    background-color: #d9dbdf;
-}
-
-.edit-button-icon {
+.issue-details__edit-button-icon {
     margin-right: 4px;
 }
 
@@ -58,7 +48,7 @@
     display: block;
     margin: 0 0 24px 0;
     font-size: 16px;
-    color: #000;
+    color: $primary-color;
     cursor: pointer;
     user-select: none;
     text-decoration: none;
