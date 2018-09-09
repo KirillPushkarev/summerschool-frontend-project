@@ -10,6 +10,8 @@ import IssueDetailsContainer from "./containers/IssueDetailsContainer";
 import IssueFormContainer from "./containers/IssueFormContainer";
 import BoardContainer from "./containers/BoardContainer";
 
+import "./App.scss";
+
 class App extends Component {
     componentDidMount() {
         this.props.fetchIssues();
@@ -19,19 +21,24 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className="App">
+                <div className="app">
                     <Header />
-                    <Switch>
-                        <Route exact path="/" component={IssueListContainer} />
-                        <Route exact path="/issues" component={IssueListContainer} />
-                        <Route path="/issues/:id" component={IssueDetailsContainer} />
-                        <Route path="/createissue" render={props => <IssueFormContainer {...props} mode="Create" />} />
-                        <Route
-                            path="/updateissue/:id"
-                            render={props => <IssueFormContainer {...props} mode="Update" />}
-                        />
-                        <Route exact path="/board" component={BoardContainer} />
-                    </Switch>
+                    <div className="layout">
+                        <Switch>
+                            <Route exact path="/" component={IssueListContainer} />
+                            <Route exact path="/issues" component={IssueListContainer} />
+                            <Route path="/issues/:id" component={IssueDetailsContainer} />
+                            <Route
+                                path="/createissue"
+                                render={props => <IssueFormContainer {...props} mode="Create" />}
+                            />
+                            <Route
+                                path="/updateissue/:id"
+                                render={props => <IssueFormContainer {...props} mode="Update" />}
+                            />
+                            <Route exact path="/board" component={BoardContainer} />
+                        </Switch>
+                    </div>
                 </div>
             </Router>
         );

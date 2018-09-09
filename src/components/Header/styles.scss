@@ -1,6 +1,10 @@
 @import "../../common-styles/variables";
 
 .header {
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    width: 100%;
     background-color: $secondary-back-color;
     color: $secondary-color;
     padding: 20px;

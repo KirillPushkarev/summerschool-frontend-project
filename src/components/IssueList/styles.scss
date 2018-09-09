@@ -5,7 +5,33 @@
     padding: 20px;
 }
 
+.issue-list__items {
+    margin-bottom: 88px;
+}
+
+.issue-list__buttons-container {
+    position: fixed;
+    padding: 25px 20px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top: 1px dashed $input-border-color;
+}
+
 .issue-list__create-button-container {
     display: inline-block;
-    margin: 24px 0;
+}
+
+.issue-list__create-button-icon {
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: 700px) {
+    .issue-list__create-button-container {
+        display: block;
+        width: 280px;
+        margin: 0 auto;
+    }
 }
