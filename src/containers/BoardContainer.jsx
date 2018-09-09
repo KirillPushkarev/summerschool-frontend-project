@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Board from "../components/Board/Board";
-import { updateIssue } from "src/redux/issues";
+import { updateIssue } from "../redux/issues";
 
 const mapStateToProps = state => ({
     issues: state.issues.items,

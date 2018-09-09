@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunkMiddleware from "redux-thunk";
-import { rootReducer } from "src/redux";
+import rootReducer from "./redux";
 
 import "./index.scss";
 import App from "./App";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles.scss";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
 class BoardItem extends Component {
     render() {
@@ -10,26 +10,24 @@ class BoardItem extends Component {
 
         return (
             <Draggable draggableId={issue.id} index={index}>
-                {(provided, snapshot) => {
-                    return (
-                        <div
-                            className="board__board-item"
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                        >
-                            {issue.name}
-                            <div className="board__board-item-avatar-container">
-                                <div
-                                    className="avatar"
-                                    style={{
-                                        backgroundImage: `url(${user ? user.avatar : unassignedImageURL})`,
-                                    }}
-                                />
-                            </div>
+                {provided => (
+                    <div
+                        className="board__board-item"
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                    >
+                        {issue.name}
+                        <div className="board__board-item-avatar-container">
+                            <div
+                                className="avatar"
+                                style={{
+                                    backgroundImage: `url(${user ? user.avatar : unassignedImageURL})`,
+                                }}
+                            />
                         </div>
-                    );
-                }}
+                    </div>
+                )}
             </Draggable>
         );
     }

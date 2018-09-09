@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import IssueList from "src/components/IssueList/IssueList";
-import { deleteIssue } from "src/redux/issues";
+import IssueList from "../components/IssueList/IssueList";
+import { deleteIssue } from "../redux/issues";
 
 const mapStateToProps = state => ({
     issues: state.issues.items,

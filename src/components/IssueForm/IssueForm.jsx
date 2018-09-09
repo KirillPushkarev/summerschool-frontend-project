@@ -61,7 +61,7 @@ class IssueForm extends Component {
 
         if (this.state.isCancelled || this.state.isSubmitted) {
             if (this.props.mode === "Create") return <Redirect push to="/issues" />;
-            else return <Redirect push to={`/issues/${this.props.match.params.id}`} />;
+            return <Redirect push to={`/issues/${this.props.match.params.id}`} />;
         }
 
         const { users } = this.props;
@@ -148,7 +148,7 @@ class IssueForm extends Component {
                             </button>
                         </div>
                         <div className="issue-edit-form__cancel-btn-container">
-                            <button className="cancel-button" onClick={this.onCancel}>
+                            <button type="button" className="cancel-button" onClick={this.onCancel}>
                                 Cancel
                             </button>
                         </div>
