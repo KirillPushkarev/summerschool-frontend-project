@@ -58,3 +58,15 @@
 .issue-details__back-btn:hover {
     text-decoration: underline;
 }
+
+@media only screen and (max-width: 700px) {
+    .issue-details__select-container {
+        width: 100%;
+    }
+
+    .issue-details__edit-button-container {
+        display: block;
+        width: 280px;
+        margin: 0 auto;
+    }
+}
