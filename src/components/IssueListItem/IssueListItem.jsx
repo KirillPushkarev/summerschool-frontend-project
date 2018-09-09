@@ -27,8 +27,10 @@ class IssueListItem extends Component {
         return (
             <div className="issue-list__item" onClick={this.onClick}>
                 <div className="issue-list__item-info">{name}</div>
-                <div className="delete-button" onClick={this.props.onRemove}>
-                    Delete
+                <div className="issue-list__item-delete-btn-container">
+                    <div className="delete-button" onClick={this.props.onRemove}>
+                        Delete
+                    </div>
                 </div>
             </div>
         );

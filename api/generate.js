@@ -50,12 +50,6 @@ module.exports = function() {
                 id: 5,
             },
         ],
-        comments: _.times(10, id => ({
-            id: id + 1,
-            text: faker.lorem.paragraph(),
-            issueId: getRandomInt(1, 5),
-            userId: getRandomInt(1, 8),
-        })),
     };
 };
 

@@ -147,9 +147,11 @@ class IssueForm extends Component {
                                 Submit
                             </button>
                         </div>
-                        <button className="issue-edit-form__cancel-btn" onClick={this.onCancel}>
-                            Cancel
-                        </button>
+                        <div className="issue-edit-form__cancel-btn-container">
+                            <button className="cancel-button" onClick={this.onCancel}>
+                                Cancel
+                            </button>
+                        </div>
                     </div>
                 </form>
             </div>

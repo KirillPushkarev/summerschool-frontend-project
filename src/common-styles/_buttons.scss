@@ -1,13 +1,17 @@
 @import "./variables";
 
 @mixin button($back-color, $color) {
-    display: inline-block;
+    display: block;
+    width: 100%;
     background-color: $back-color;
     color: $color;
     text-decoration: none;
     text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
+    outline: none;
 }
 
 .primary-button {
@@ -38,4 +42,14 @@
 .delete-button:hover {
     background-color: #fd3b3b;
     color: #fff;
+}
+
+.cancel-button {
+    @include button(#fff, #0052cc);
+    padding: 9px 15px;
+    border: none;
+}
+
+.cancel-button:hover {
+    text-decoration: underline;
 }

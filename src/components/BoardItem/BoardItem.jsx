@@ -19,12 +19,14 @@ class BoardItem extends Component {
                             {...provided.dragHandleProps}
                         >
                             {issue.name}
-                            <div
-                                className="board__board-item-avatar"
-                                style={{
-                                    backgroundImage: `url(${user ? user.avatar : unassignedImageURL})`,
-                                }}
-                            />
+                            <div className="board__board-item-avatar-container">
+                                <div
+                                    className="avatar"
+                                    style={{
+                                        backgroundImage: `url(${user ? user.avatar : unassignedImageURL})`,
+                                    }}
+                                />
+                            </div>
                         </div>
                     );
                 }}

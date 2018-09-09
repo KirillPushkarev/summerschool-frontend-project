@@ -20,7 +20,7 @@ class IssueList extends Component {
         return (
             <div className="issue-list">
                 <div className="issue-list__items">{issueElements}</div>
-                <div className="issue-list__add-button-container">
+                <div className="issue-list__create-button-container">
                     <Link to="/createissue" className="secondary-button">
                         Create issue
                     </Link>

@@ -36,26 +36,30 @@ class ComboboxWithAvatars extends Component {
         return (
             <div className="combobox">
                 <div className="combobox__option combobox__selected-option" onClick={this.onSelectedClick}>
-                    <div
-                        className="combobox__option-avatar"
-                        style={{
-                            backgroundImage: `url(${
-                                selectedOption.imgSrc ? selectedOption.imgSrc : unassignedImageURL
-                            })`,
-                        }}
-                    />
+                    <div className="combobox__option-avatar-container">
+                        <div
+                            className="avatar"
+                            style={{
+                                backgroundImage: `url(${
+                                    selectedOption.imgSrc ? selectedOption.imgSrc : unassignedImageURL
+                                })`,
+                            }}
+                        />
+                    </div>
                     {selectedOption.text}
                     <i className="fas fa-angle-down combobox__selected-icon" />
                 </div>
                 <div className={`combobox__options${this.state.closed ? " combobox__options_hidden" : ""}`}>
                     {options.map(option => (
                         <div key={option.value} className="combobox__option" onClick={this.onOptionClick(option)}>
-                            <div
-                                className="combobox__option-avatar"
-                                style={{
-                                    backgroundImage: `url(${option.imgSrc ? option.imgSrc : unassignedImageURL})`,
-                                }}
-                            />
+                            <div className="combobox__option-avatar-container">
+                                <div
+                                    className="avatar"
+                                    style={{
+                                        backgroundImage: `url(${option.imgSrc ? option.imgSrc : unassignedImageURL})`,
+                                    }}
+                                />
+                            </div>
                             {option.text}
                         </div>
                     ))}

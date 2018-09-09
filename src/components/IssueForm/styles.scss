@@ -1,6 +1,6 @@
+@import "../../common-styles/card";
 @import "../../common-styles/buttons";
 @import "../../common-styles/form-elements";
-@import "../../common-styles/card";
 
 .issue-edit-form {
     margin: 20px;
@@ -27,6 +27,7 @@
 
 .issue-edit-form__textarea-input-container {
     width: 100%;
+    height: 200px;
 }
 
 .issue-edit-form__select-container {
@@ -35,23 +36,26 @@
 
 .issue-edit-form__btns-block {
     display: flex;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
-.issue-edit-form__submit-btn-container {
-    margin: 8px 0;
+.issue-edit-form__cancel-btn-container {
+    margin: 0 0 0 6px;
 }
 
-.issue-edit-form__cancel-btn {
-    background-color: #fff;
-    color: #0052cc;
-    margin: 8px 0;
-    padding: 9px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+@media only screen and (max-width: 600px) {
+    .issue-edit-form__select-container {
+        width: 100%;
+    }
+    .issue-edit-form__btns-block {
+        justify-content: space-between;
+    }
+    .issue-edit-form__submit-btn-container,
+    .issue-edit-form__cancel-btn-container {
+        width: 47%;
+    }
 
-.issue-edit-form__cancel-btn:hover {
-    text-decoration: underline;
+    .issue-edit-form__cancel-btn-container {
+        margin: 0;
+    }
 }
