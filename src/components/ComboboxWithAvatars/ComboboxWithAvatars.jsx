@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Avatar from "../Avatar/Avatar";
 import "./styles.scss";
 
 import onClickOutside from "react-onclickoutside";
@@ -30,21 +31,12 @@ class ComboboxWithAvatars extends Component {
     render() {
         const { options, selectedValue } = this.props;
         const selectedOption = options.find(option => option.value === selectedValue);
-        const unassignedImageURL =
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/WikiFont_uniE600_-_userAvatar_-_blue.svg/240px-WikiFont_uniE600_-_userAvatar_-_blue.svg.png";
 
         return (
             <div className="combobox">
                 <div className="combobox__option combobox__selected-option" onClick={this.onSelectedClick}>
                     <div className="combobox__option-avatar-container">
-                        <div
-                            className="avatar"
-                            style={{
-                                backgroundImage: `url(${
-                                    selectedOption.imgSrc ? selectedOption.imgSrc : unassignedImageURL
-                                })`,
-                            }}
-                        />
+                        <Avatar imgSrc={selectedOption.imgSrc} />
                     </div>
                     {selectedOption.text}
                     <i className="fas fa-angle-down combobox__selected-icon" />
@@ -53,12 +45,7 @@ class ComboboxWithAvatars extends Component {
                     {options.map(option => (
                         <div key={option.value} className="combobox__option" onClick={this.onOptionClick(option)}>
                             <div className="combobox__option-avatar-container">
-                                <div
-                                    className="avatar"
-                                    style={{
-                                        backgroundImage: `url(${option.imgSrc ? option.imgSrc : unassignedImageURL})`,
-                                    }}
-                                />
+                                <Avatar imgSrc={option.imgSrc} />
                             </div>
                             {option.text}
                         </div>

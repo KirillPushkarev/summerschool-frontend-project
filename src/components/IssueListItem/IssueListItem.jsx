@@ -4,12 +4,9 @@ import "./styles.scss";
 import { Redirect } from "react-router-dom";
 
 class IssueListItem extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            redirectToDetails: false,
-        };
-    }
+    state = {
+        redirectToDetails: false,
+    };
 
     onClick = () => {
         this.setState({
@@ -18,7 +15,7 @@ class IssueListItem extends Component {
     };
 
     render() {
-        const { id, name } = this.props.issue;
+        const { id, name, onRemove } = this.props.issue;
 
         if (this.state.redirectToDetails) {
             return <Redirect push to={`/issues/${id}`} />;
@@ -28,7 +25,7 @@ class IssueListItem extends Component {
             <div className="issue-list__item" onClick={this.onClick}>
                 <div className="issue-list__item-info">{name}</div>
                 <div className="issue-list__item-delete-btn-container">
-                    <div className="delete-button" onClick={this.props.onRemove}>
+                    <div className="delete-button" onClick={onRemove}>
                         Delete
                     </div>
                 </div>

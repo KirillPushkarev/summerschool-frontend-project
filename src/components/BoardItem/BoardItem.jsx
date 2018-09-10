@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./styles.scss";
 import { Draggable } from "react-beautiful-dnd";
+import Avatar from "../Avatar/Avatar";
 
 class BoardItem extends Component {
     render() {
@@ -19,12 +20,7 @@ class BoardItem extends Component {
                     >
                         {issue.name}
                         <div className="board__board-item-avatar-container">
-                            <div
-                                className="avatar"
-                                style={{
-                                    backgroundImage: `url(${user ? user.avatar : unassignedImageURL})`,
-                                }}
-                            />
+                            <Avatar imgSrc={user ? user.avatar : null} />
                         </div>
                     </div>
                 )}

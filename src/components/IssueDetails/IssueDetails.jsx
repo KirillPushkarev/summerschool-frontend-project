@@ -16,7 +16,6 @@ class IssueDetails extends Component {
                         {"< Back to issues"}
                     </Link>
                     <h1 className="issue-details__title">{name}</h1>
-
                     <div className="issue-details__block">
                         <h2 className="issue-details__field-name">Description</h2>
                         <div className="issue-details__description">{description}</div>

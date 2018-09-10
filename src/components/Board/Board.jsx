@@ -8,11 +8,9 @@ import BoardColumn from "../BoardColumn/BoardColumn";
 class Board extends Component {
     onDragEnd = result => {
         const { draggableId, source, destination } = result;
-        const { issues, updateIssue } = this.props;
+        if (!destination) return;
 
-        if (!destination) {
-            return;
-        }
+        const { issues, updateIssue } = this.props;
 
         if (source.droppableId === destination.droppableId) {
             // put here logic for reordering items in one column
