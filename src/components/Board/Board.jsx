@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles.scss";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 import { cloneDeep } from "lodash";
 
 import BoardColumn from "../BoardColumn/BoardColumn";
@@ -8,29 +8,29 @@ import BoardColumn from "../BoardColumn/BoardColumn";
 class Board extends Component {
     onDragEnd = result => {
         const { draggableId, source, destination } = result;
+        const { issues, updateIssue } = this.props;
 
         if (!destination) {
             return;
         }
 
         if (source.droppableId === destination.droppableId) {
+            // put here logic for reordering items in one column
         } else {
-            const movedIssue = cloneDeep(this.props.issues.find(issue => issue.id === draggableId));
+            const movedIssue = cloneDeep(issues.find(issue => issue.id === draggableId));
             movedIssue.status = destination.droppableId;
-            this.props.updateIssue(movedIssue);
+            updateIssue(movedIssue);
         }
     };
 
     render() {
-        if (!this.props.isInitialDataFetched) return null;
+        const { isInitialDataFetched, issues } = this.props;
+
+        if (!isInitialDataFetched) return null;
 
         const statuses = ["To do", "In progress", "In review", "Done"];
         const boardGroupElements = statuses.map(status => (
-            <BoardColumn
-                key={status}
-                status={status}
-                issues={this.props.issues.filter(issue => issue.status === status)}
-            />
+            <BoardColumn key={status} status={status} issues={issues.filter(issue => issue.status === status)} />
         ));
 
         return (

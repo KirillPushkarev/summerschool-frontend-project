@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./styles.scss";
 
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable } from "react-beautiful-dnd";
 import BoardItemContainer from "../../containers/BoardItemContainer";
 
 class BoardColumn extends Component {

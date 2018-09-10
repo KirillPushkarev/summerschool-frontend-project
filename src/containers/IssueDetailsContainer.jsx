@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import IssueDetails from "src/components/IssueDetails/IssueDetails";
-import { updateIssue } from "src/redux/issues";
+import IssueDetails from "../components/IssueDetails/IssueDetails";
+import { updateIssue } from "../redux/issues";
 
 const mapStateToProps = (state, ownProps) => ({
     issue: state.issues.items.find(issue => issue.id.toString() === ownProps.match.params.id),

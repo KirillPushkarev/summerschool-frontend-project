@@ -11,7 +11,7 @@ class IssueListItem extends Component {
         };
     }
 
-    onClick = e => {
+    onClick = () => {
         this.setState({
             redirectToDetails: true,
         });
