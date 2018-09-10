@@ -34,6 +34,17 @@
     width: 250px;
 }
 
+.issue-edit-form__errors {
+    margin-top: 20px;
+}
+
+.issue-edit-form__error {
+    padding: 9px 12px;
+    background-color: #ffe9e9;
+    color: #ff0000;
+    border-radius: 4px;
+}
+
 .issue-edit-form__btns-block {
     display: flex;
     margin-top: 40px;

@@ -12,6 +12,7 @@ class IssueForm extends Component {
             issue: this.props.issue,
             isSubmitted: false,
             isCancelled: false,
+            errors: [],
         };
     }
 
@@ -33,8 +34,22 @@ class IssueForm extends Component {
         }));
     };
 
+    validate = () => {
+        const { issue } = this.state;
+        const errors = [];
+
+        if (!issue.name) {
+            errors.push("Issue name cannot be empty.");
+        }
+
+        this.setState(prevState => ({ ...prevState, errors }));
+        return errors.length === 0;
+    };
+
     onSubmit = event => {
         event.preventDefault();
+
+        if (!this.validate()) return;
 
         if (this.props.mode === "Create") {
             this.props.addIssue(this.state.issue);
@@ -58,7 +73,7 @@ class IssueForm extends Component {
 
     render() {
         const { mode, users, match } = this.props;
-        const { issue, isInitialDataFetched, isCancelled, isSubmitted } = this.state;
+        const { issue, isInitialDataFetched, isCancelled, isSubmitted, errors } = this.state;
 
         if (!isInitialDataFetched) return null;
 
@@ -95,6 +110,14 @@ class IssueForm extends Component {
                     <div className="issue-edit-form__block">
                         <label className="issue-edit-form__label">Assignee</label>
                         {this.renderAssigneeCombobox(issue, users)}
+                    </div>
+
+                    <div className="issue-edit-form__errors">
+                        {errors.map((error, index) => (
+                            <div key={index} className="issue-edit-form__error">
+                                {error}
+                            </div>
+                        ))}
                     </div>
 
                     <div className="issue-edit-form__btns-block">

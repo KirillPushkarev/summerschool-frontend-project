@@ -15,7 +15,8 @@ class IssueListItem extends Component {
     };
 
     render() {
-        const { id, name, onRemove } = this.props.issue;
+        const { issue, onRemove } = this.props;
+        const { id, name } = issue;
 
         if (this.state.redirectToDetails) {
             return <Redirect push to={`/issues/${id}`} />;
