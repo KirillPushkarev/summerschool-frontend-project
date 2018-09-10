@@ -1,166 +1,166 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "name": "Burnice Conn",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/coreyginnivan/128.jpg"
-        },
-        {
-            "id": 2,
-            "name": "Giovanna Mueller",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/leehambley/128.jpg"
-        },
-        {
-            "id": 3,
-            "name": "Dr. Eliezer Wolf",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/swooshycueb/128.jpg"
-        },
-        {
-            "id": 4,
-            "name": "Bert Bechtelar",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/michalhron/128.jpg"
-        },
-        {
-            "id": 5,
-            "name": "Jamie Bartoletti",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/arthurholcombe1/128.jpg"
-        },
-        {
-            "id": 6,
-            "name": "Linda Schmeler",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ismail_biltagi/128.jpg"
-        },
-        {
-            "id": 7,
-            "name": "Dr. Clarabelle Trantow",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/kojourin/128.jpg"
-        },
-        {
-            "id": 8,
-            "name": "Marcellus Kulas PhD",
-            "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"
-        }
-    ],
-    "issues": [
-        {
-            "name": "Issue 1",
-            "description": "My first issue.",
-            "priority": "Highest",
-            "status": "Done",
-            "assigneeId": 1,
-            "id": 1
-        },
-        {
-            "name": "Issue 2",
-            "description": "Задача 2",
-            "priority": "Medium",
-            "status": "In progress",
-            "assigneeId": 2,
-            "id": 2
-        },
-        {
-            "name": "Hello",
-            "description": "Say hello",
-            "priority": "Low",
-            "status": "To do",
-            "assigneeId": 5,
-            "id": 3
-        },
-        {
-            "name": "Add unit tests",
-            "description": "Add unit tests for redux. Test actions and reducers.",
-            "priority": "Highest",
-            "status": "To do",
-            "assigneeId": 3,
-            "id": 4
-        },
-        {
-            "name": "for test",
-            "description": "for test",
-            "priority": "Highest",
-            "status": "In progress",
-            "assigneeId": 4,
-            "id": 5
-        },
-        {
-            "name": "Long name.Long name.Long name.Long name.Long name.Long name.",
-            "description": "Long description.Long description.Long description.Long description.Long description.Long description.Long description.Long description.Long description.",
-            "priority": "Highest",
-            "status": "In progress",
-            "assigneeId": 6,
-            "id": 6
-        },
-        {
-            "name": "ESLint",
-            "description": "Add eslint to pipeline",
-            "priority": "Medium",
-            "status": "In progress",
-            "assigneeId": 8,
-            "id": 7
-        },
-        {
-            "name": "Issue 8",
-            "description": "Issue 8",
-            "priority": "Low",
-            "status": "To do",
-            "assigneeId": 7,
-            "id": 8
-        },
-        {
-            "name": "Issue 9",
-            "description": "Issue 9",
-            "priority": "Highest",
-            "status": "Done",
-            "assigneeId": 2,
-            "id": 9
-        },
-        {
-            "name": "Issue 10",
-            "description": "Issue 10",
-            "priority": "Highest",
-            "status": "To do",
-            "assigneeId": 5,
-            "id": 10
-        },
-        {
-            "name": "Issue 11",
-            "description": "Issue 11",
-            "priority": "Highest",
-            "status": "Done",
-            "assigneeId": 1,
-            "id": 11
-        },
-        {
-            "name": "Issue 12",
-            "description": "Задача 12",
-            "priority": "Medium",
-            "status": "In review",
-            "assigneeId": 3,
-            "id": 12
-        },
-        {
-            "name": "Issue 13",
-            "description": "13",
-            "priority": "Low",
-            "status": "To do",
-            "assigneeId": 7,
-            "id": 13
-        },
-        {
-            "name": "Issue 14",
-            "description": "Issue 14",
-            "priority": "Highest",
-            "status": "In review",
-            "assigneeId": 4,
-            "id": 14
-        },
-        {
-            "name": "Issue 15",
-            "description": "",
-            "priority": "Highest",
-            "status": "To do",
-            "assigneeId": 2,
-            "id": 15
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "Burnice Conn",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/coreyginnivan/128.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Giovanna Mueller",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/leehambley/128.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Eliezer Wolf",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/swooshycueb/128.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Bert Bechtelar",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/michalhron/128.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Jamie Bartoletti",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/arthurholcombe1/128.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Linda Schmeler",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/ismail_biltagi/128.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Dr. Clarabelle Trantow",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/kojourin/128.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Marcellus Kulas PhD",
+      "avatar": "https://s3.amazonaws.com/uifaces/faces/twitter/jydesign/128.jpg"
+    }
+  ],
+  "issues": [
+    {
+      "name": "Issue 1",
+      "description": "My first issue.",
+      "priority": "Highest",
+      "status": "Done",
+      "assigneeId": 1,
+      "id": 1
+    },
+    {
+      "name": "Issue 2",
+      "description": "Задача 2",
+      "priority": "Medium",
+      "status": "In progress",
+      "assigneeId": 2,
+      "id": 2
+    },
+    {
+      "name": "Hello",
+      "description": "Say hello",
+      "priority": "Low",
+      "status": "To do",
+      "assigneeId": 5,
+      "id": 3
+    },
+    {
+      "name": "Add unit tests",
+      "description": "Add unit tests for redux. Test actions and reducers.",
+      "priority": "Highest",
+      "status": "To do",
+      "assigneeId": 3,
+      "id": 4
+    },
+    {
+      "name": "for test",
+      "description": "for test",
+      "priority": "Highest",
+      "status": "In progress",
+      "assigneeId": 4,
+      "id": 5
+    },
+    {
+      "name": "Long name.Long name.Long name.Long name.Long name.Long name.",
+      "description": "Long description.Long description.Long description.Long description.Long description.Long description.Long description.Long description.Long description.",
+      "priority": "Highest",
+      "status": "In progress",
+      "assigneeId": 6,
+      "id": 6
+    },
+    {
+      "name": "ESLint",
+      "description": "Add eslint to pipeline",
+      "priority": "Medium",
+      "status": "In progress",
+      "assigneeId": 8,
+      "id": 7
+    },
+    {
+      "name": "Issue 8",
+      "description": "Issue 8",
+      "priority": "Low",
+      "status": "To do",
+      "assigneeId": 7,
+      "id": 8
+    },
+    {
+      "name": "Issue 9",
+      "description": "Issue 9",
+      "priority": "Highest",
+      "status": "Done",
+      "assigneeId": 2,
+      "id": 9
+    },
+    {
+      "name": "Issue 10",
+      "description": "Issue 10",
+      "priority": "Highest",
+      "status": "To do",
+      "assigneeId": 5,
+      "id": 10
+    },
+    {
+      "name": "Issue 11",
+      "description": "Issue 11",
+      "priority": "Highest",
+      "status": "Done",
+      "assigneeId": 1,
+      "id": 11
+    },
+    {
+      "name": "Issue 12",
+      "description": "Задача 12",
+      "priority": "Medium",
+      "status": "In review",
+      "assigneeId": 3,
+      "id": 12
+    },
+    {
+      "name": "Issue 13",
+      "description": "13",
+      "priority": "Low",
+      "status": "To do",
+      "assigneeId": 7,
+      "id": 13
+    },
+    {
+      "name": "Issue 14",
+      "description": "Issue 14",
+      "priority": "Highest",
+      "status": "In review",
+      "assigneeId": 4,
+      "id": 14
+    },
+    {
+      "name": "Issue 15",
+      "description": "",
+      "priority": "Highest",
+      "status": "To do",
+      "assigneeId": 2,
+      "id": 15
+    }
+  ]
 }
