@@ -7,7 +7,7 @@
         "prod": "rimraf dist && webpack --mode=production",
         "start": "node server.js",
         "dev": "webpack-dev-server --mode=development --hot --inline",
-        "dev-api": "json-server api/generate.js --port 8000",
+        "dev-api": "json-server api/db.json --port 8000",
         "test": "jest",
         "heroku-postbuild": "webpack --mode=production",
         "lint": "eslint src --ext .js,.jsx"
