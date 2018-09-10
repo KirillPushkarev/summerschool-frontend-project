@@ -9,7 +9,7 @@ export default ({ imgSrc }) => {
         <div
             className="avatar"
             style={{
-                backgroundImage: `url(${imgSrc ? imgSrc : unassignedImageURL})`,
+                backgroundImage: `url(${imgSrc || unassignedImageURL})`,
             }}
         />
     );

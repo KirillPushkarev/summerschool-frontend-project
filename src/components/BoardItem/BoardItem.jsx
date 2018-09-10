@@ -6,8 +6,6 @@ import Avatar from "../Avatar/Avatar";
 class BoardItem extends Component {
     render() {
         const { issue, user, index } = this.props;
-        const unassignedImageURL =
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/WikiFont_uniE600_-_userAvatar_-_blue.svg/240px-WikiFont_uniE600_-_userAvatar_-_blue.svg.png";
 
         return (
             <Draggable draggableId={issue.id} index={index}>

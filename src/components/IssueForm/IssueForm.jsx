@@ -39,7 +39,7 @@ class IssueForm extends Component {
         const errors = [];
 
         if (!issue.name) {
-            errors.push("Issue name cannot be empty.");
+            errors.push({ fieldName: "name", message: "Issue name cannot be empty." });
         }
 
         this.setState(prevState => ({ ...prevState, errors }));
@@ -113,9 +113,9 @@ class IssueForm extends Component {
                     </div>
 
                     <div className="issue-edit-form__errors">
-                        {errors.map((error, index) => (
-                            <div key={index} className="issue-edit-form__error">
-                                {error}
+                        {errors.map(error => (
+                            <div key={error.fieldName} className="issue-edit-form__error">
+                                {error.message}
                             </div>
                         ))}
                     </div>

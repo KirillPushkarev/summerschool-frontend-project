@@ -1,8 +1,7 @@
 import React, { Component } from "react";
+import onClickOutside from "react-onclickoutside";
 import Avatar from "../Avatar/Avatar";
 import "./styles.scss";
-
-import onClickOutside from "react-onclickoutside";
 
 class ComboboxWithAvatars extends Component {
     state = {
