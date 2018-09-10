@@ -2,7 +2,7 @@
 
     https://issue-tracker-999.herokuapp.com/
 
-# Decription
+# Description
 
     This is a final project for frontend flow in Xsolla Summerschool 2018.
 
