@@ -64,6 +64,9 @@ module.exports = function(env, argv) {
             historyApiFallback: true,
             watchContentBase: true,
             open: true,
+            proxy: {
+                "/api": "http://localhost:8000",
+            },
         };
     }
 

@@ -1,6 +1,6 @@
 import UserApiService from "../api_services/UserApiService";
 
-const baseURL = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000";
+const baseURL = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000/api";
 const userApiService = new UserApiService(baseURL);
 
 // Constants
