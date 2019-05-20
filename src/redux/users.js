@@ -1,7 +1,4 @@
-import UserApiService from "../api_services/UserApiService";
-
-const baseURL = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000/api";
-const userApiService = new UserApiService(baseURL);
+import { userService } from "../api_services/index";
 
 // Constants
 export const actionTypes = {
@@ -26,7 +23,7 @@ function receiveUsers(users) {
 export function fetchUsers() {
     return function(dispatch) {
         dispatch(requestUsers());
-        return userApiService.getUsers().then(response => {
+        return userService.getUsers().then(response => {
             dispatch(receiveUsers(response.data));
         });
     };

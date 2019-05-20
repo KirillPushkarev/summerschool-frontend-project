@@ -2,30 +2,36 @@ const express = require("express");
 const path = require("path");
 const port = process.env.PORT || 8000;
 const app = express();
+const jwt = require("express-jwt");
+const jwks = require("jwks-rsa");
 
-// Add headers
+const jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: "https://issue-tracker-999.auth0.com/.well-known/jwks.json",
+    }),
+    audience: "https://issue-tracker-999.herokuapp.com",
+    issuer: "https://issue-tracker-999.auth0.com/",
+    algorithms: ["RS256"],
+});
+
 app.use(function(req, res, next) {
-    // Website you wish to allow to connect
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-
-    // Request methods you wish to allow
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "content-type,Authorization");
 
-    // Request headers you wish to allow
-    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type");
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader("Access-Control-Allow-Credentials", true);
-
-    // Pass to next layer of middleware
     next();
 });
 app.use(express.static(path.resolve(__dirname, "dist")));
+app.use(jwtCheck);
 app.use("/api", require("./api/routes"));
-// app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(__dirname, "dist/index.html"));
-// });
+if (process.env.NODE_ENV === "production") {
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, "dist/index.html"));
+    });
+}
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URL, {

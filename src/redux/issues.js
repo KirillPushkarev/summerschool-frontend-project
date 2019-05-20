@@ -1,7 +1,4 @@
-import IssueApiService from "../api_services/IssueApiService";
-
-const baseURL = process.env.NODE_ENV === "production" ? "/api" : "http://localhost:8000/api";
-const issueApiService = new IssueApiService(baseURL);
+import { issueService } from "../api_services/index";
 
 // Constants
 export const actionTypes = {
@@ -31,7 +28,7 @@ const receiveIssues = issues => ({
 export function fetchIssues() {
     return function(dispatch) {
         dispatch(requestIssues());
-        return issueApiService.getIssues().then(response => {
+        return issueService.getIssues().then(response => {
             dispatch(receiveIssues(response.data));
         });
     };
@@ -49,8 +46,8 @@ const receiveAddIssue = issue => ({
 export function addIssue(issue) {
     return function(dispatch) {
         dispatch(requestAddIssue());
-        return issueApiService.postIssue(issue).then(response => {
-            dispatch(receiveAddIssue(response.data));
+        return issueService.postIssue(issue).then(response => {
+            dispatch(receiveAddIssue({ ...issue, id: response.data.id }));
         });
     };
 }
@@ -68,8 +65,8 @@ const receiveUpdateIssue = issue => ({
 export function updateIssue(issue) {
     return function(dispatch) {
         dispatch(requestUpdateIssue(issue));
-        return issueApiService.putIssue(issue).then(response => {
-            dispatch(receiveUpdateIssue(response.data));
+        return issueService.putIssue(issue).then(response => {
+            dispatch(receiveUpdateIssue(issue));
         });
     };
 }
@@ -87,7 +84,7 @@ const receiveDeleteIssue = issueId => ({
 export function deleteIssue(issueId) {
     return function(dispatch) {
         dispatch(requestDeleteIssue(issueId));
-        return issueApiService.deleteIssue(issueId).then(() => {
+        return issueService.deleteIssue(issueId).then(() => {
             dispatch(receiveDeleteIssue(issueId));
         });
     };

@@ -9,16 +9,19 @@
     color: $secondary-color;
     padding: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
 .header__navlink {
+    display: inline-block;
     margin: 0 5px;
     padding: 10px 16px;
     text-decoration: none;
     font-size: 20px;
     color: $secondary-color;
+    cursor: pointer;
 }
 
 .header__navlink:hover {

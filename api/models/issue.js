@@ -6,6 +6,7 @@ const issueSchema = new mongoose.Schema({
     priority: String,
     status: String,
     assigneeId: String,
+    owner: String,
 });
 const Issue = mongoose.model("Issue", issueSchema);
 

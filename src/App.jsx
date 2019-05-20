@@ -1,43 +1,66 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchIssues } from "./redux/issues";
 import { fetchUsers } from "./redux/users";
+import { successAuth } from "./redux/auth";
 
 import Header from "./components/Header/Header";
 import IssueListContainer from "./containers/IssueListContainer";
 import IssueDetailsContainer from "./containers/IssueDetailsContainer";
 import IssueFormContainer from "./containers/IssueFormContainer";
 import BoardContainer from "./containers/BoardContainer";
+import Callback from "./components/Callback/Callback";
+import Guest from "./components/Guest/Guest";
+import PrivateRoute from "./containers/PrivateRoute";
+import { authService } from "./api_services/index";
+import history from "./history";
 
 import "./App.scss";
 
+const handleAuthentication = ({ location }, successAuth) => {
+    if (/access_token|id_token|error/.test(location.hash)) {
+        authService.handleAuthentication(() => successAuth());
+    }
+};
+
 class App extends Component {
-    componentDidMount() {
-        this.props.fetchIssues();
-        this.props.fetchUsers();
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.isAuthenticated && !nextProps.isInitialDataFetched) {
+            nextProps.fetchIssues();
+            nextProps.fetchUsers();
+        }
     }
 
     render() {
         return (
-            <Router>
+            <Router history={history}>
                 <div className="app">
-                    <Header />
+                    <Header auth={authService} />
+
                     <div className="layout">
                         <Switch>
-                            <Route exact path="/" component={IssueListContainer} />
-                            <Route exact path="/issues" component={IssueListContainer} />
-                            <Route path="/issues/:id" component={IssueDetailsContainer} />
-                            <Route
+                            <PrivateRoute exact path="/" component={IssueListContainer} />
+                            <PrivateRoute exact path="/issues" component={IssueListContainer} />
+                            <PrivateRoute path="/issues/:id" component={IssueDetailsContainer} />
+                            <PrivateRoute
                                 path="/createissue"
-                                render={props => <IssueFormContainer {...props} mode="Create" />}
+                                component={props => <IssueFormContainer {...props} mode="Create" />}
                             />
-                            <Route
+                            <PrivateRoute
                                 path="/updateissue/:id"
-                                render={props => <IssueFormContainer {...props} mode="Update" />}
+                                component={props => <IssueFormContainer {...props} mode="Update" />}
                             />
-                            <Route exact path="/board" component={BoardContainer} />
+                            <PrivateRoute exact path="/board" component={BoardContainer} />
+                            <Route
+                                path="/callback"
+                                component={props => {
+                                    handleAuthentication(props, this.props.successAuth);
+                                    return <Callback {...props} />;
+                                }}
+                            />
                         </Switch>
+                        {!this.props.isAuthenticated && <Guest />}
                     </div>
                 </div>
             </Router>
@@ -45,12 +68,18 @@ class App extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    isInitialDataFetched: state.issues.isInitialDataFetched && state.users.isInitialDataFetched,
+});
+
 const mapDispatchToProps = {
     fetchIssues,
     fetchUsers,
+    successAuth,
 };
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
 )(App);
