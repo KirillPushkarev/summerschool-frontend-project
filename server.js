@@ -17,21 +17,24 @@ const jwtCheck = jwt({
     algorithms: ["RS256"],
 });
 
-app.use(function(req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
-    res.setHeader("Access-Control-Allow-Headers", "content-type,Authorization");
-
-    next();
-});
 app.use(express.static(path.resolve(__dirname, "dist")));
-app.use(jwtCheck);
-app.use("/api", require("./api/routes"));
 if (process.env.NODE_ENV === "production") {
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "dist/index.html"));
     });
 }
+
+app.use(function(req, res, next) {
+    if (process.env.NODE_ENV !== "production") {
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    }
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "content-type,Authorization");
+
+    next();
+});
+app.use(jwtCheck);
+app.use("/api", require("./api/routes"));
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URL, {
