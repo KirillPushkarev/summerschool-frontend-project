@@ -5,6 +5,8 @@ const app = express();
 const jwt = require("express-jwt");
 const jwks = require("jwks-rsa");
 
+app.disable("x-powered-by");
+
 const headersMiddleware = function(req, res, next) {
     if (process.env.NODE_ENV !== "production") {
         res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
